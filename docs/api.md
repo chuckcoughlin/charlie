@@ -1,11 +1,8 @@
 ## API
 
-The Application Programming Interface (API) . Those tests which have passed are marked with green (![green](/images/ball_green.png)). Features that are currently in a broken state and are
-actively being debugged are marked in red (![red](/images/ball_red.png)).  A yellow (![yellow](/images/ball_yellow.png)) marker indicates a feature that has yet to be tested in the current version.
-Gray (![gray](/images/ball_gray.png)) indicates features that are defined but not yet implemented. The collection of
-green markers is a pretty fair indication of completion status of the project.
+The Application Programming Interface (API) is the set of Python commands that can be executed across a Bluetooth connection between devices, in particular, the game controller or an Android phone or tablet. The Android devices must be running the Booster Android application.
 
-Unless otherwise stated, tests are run by giving typed commands to the stand-alone version of the robot control code.
+The API is documented in [API](http://github.com/chuckcoughlin/charlie/tree/master/docs/api.md).
 
 
 ***************************************************************
