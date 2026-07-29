@@ -12,5 +12,5 @@ These customizations are described in a series of guides. See [Admin](http://git
  [Auto](http://github.com/chuckcoughlin/charlie/tree/master/docs/uauto.md) is the custom programming SDK in Python using the embedded NVIDIA Jetson Orin NX module. It manages high-speed edge processes, stereo depth visual data, microphone arrays, and real-time inference loop routines completely detached from external hardware. [Training](http://github.com/chuckcoughlin/charlie/tree/master/docs/user-guide.md) describes the off-line training environment.
 
 
- ![Charlie](/images/CharlieSitting3.png)
+ ![Charlie](/images/CharlieSitting3.jpeg)
  ```                  Charlie in Lawn Chair     ```
