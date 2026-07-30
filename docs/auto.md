@@ -1,9 +1,8 @@
-## Autonomous Operation
+# Autonomous Operation
 
 This document describes the process of implementing autonomous behavior in the robot. It describes both "hands-on" training and training via simulation.
 
-Unless otherwise stated, tests are run by giving typed commands to the stand-alone version of the robot control code.
-[Simulation](http://github.com/chuckcoughlin/charlie/tree/master/docs/user-guide.md) describes usage of Webots, Mujoco, or Isaac Sim to guarantee proper walking dynamics before live mechanical engagement.
+One of Webots, Mujoco, or Isaac Sim is used as the simulation environment to guarantee proper walking dynamics before live mechanical engagement. This guide provides installation instruction for the simulation tool.
 
 ***************************************************************
 ## Table of Contents <a id="table-of-contents"></a>
