@@ -3,8 +3,8 @@
 This document describes installation and configuration of the software tools used to develop "Charlie".
 The standard setup, configuration and operational parameters are fully documented by Booster Robotics. See [Booster Setup](https://www.manualslib.com/manual/4118138/Booster-K1.html#manual), [Booster Manual](https://https://booster.feishu.cn/wiki/E3q5wF5SnitXZgkY18Uc8odBnXb) and [Booster SDK](https://https://github.com/BoosterRobotics/booster_robotics_sdk). All software is provided under an open-source license.
 
-![Charlie](/images/CharlieSitting2.jpeg)
-```                        Charlie at Rest```
+![Charlie](/images/CharlieStanding.jpeg)
+```                        Charlie in "Stand"```
 
 
 ***
