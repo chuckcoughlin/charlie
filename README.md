@@ -12,6 +12,12 @@ These customizations are described in a series of guides. See [Admin](http://git
 
  [Auto](http://github.com/chuckcoughlin/charlie/tree/master/docs/auto.md) describes training procedures for both direct and simulation training regimes.
 
+ The repository describes the following customizations:
+  * Bow - perform an additional action when in Booster mode
+  * Introduce - robot counts 1,2,3 ... as a precursor to a dance
+  * Jig - this is an additonal dance, an Irish jig
+  * Navigate - create an autonomous environment where the robot roams a physical space after being trained in a simulation
+  * Play - combine a series of actions into a single hands-off program
 
  ![Charlie](/images/CharlieSitting3.jpeg)
  ```                  Charlie in Study     ```
