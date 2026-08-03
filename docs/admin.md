@@ -14,6 +14,7 @@ The standard setup, configuration and operational parameters are fully documente
   * [Software Development](#software)
     * [Booster Studio](#studio)
     * [Python](#python_ide)
+    * [Docker](#docker_desktop)
 ***
 
 ## First Contact <a id="initialization"></a>
@@ -46,3 +47,6 @@ Then install the following packages:
 ```
 
 We have chosen `PyCharm` as our Python editor. It can be downloaded from [here](https://https://www.jetbrains.com/pycharm/download/download-thanks.html?platform=macM1) See [PyCharm Help](https://www.jetbrains.com/help/pycharm/).
+
+### Docker <a id="docker_desktop"></a>
+  Docker is used to create a test container for a virtual image of the robot. The install link is [here](https://www.docker.com/products/docker-desktop)
