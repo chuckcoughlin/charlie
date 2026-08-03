@@ -1,0 +1,11 @@
+id = "charlie.robot"
+version = "1.0.0"
+name = { en = "Charlie", zh = "Charlie" }
+logo = "/res/logo.png"
+description = "Custom	 Agent written in Python"
+entry = "src/main.py:ExampleAgent"
+debuggable = true
+
+[requirements]
+min_api_level = 10700
+models = [ "Booster T1", "Booster K1" ]

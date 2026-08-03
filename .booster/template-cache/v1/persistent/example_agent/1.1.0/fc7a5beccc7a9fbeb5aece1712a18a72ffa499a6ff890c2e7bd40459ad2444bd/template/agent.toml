@@ -1,0 +1,11 @@
+id = "com.boosterobotics.pyagent"
+version = "1.0.0"
+name = { en = "PyAgentExample", zh = "PyAgentExample" }
+logo = "/res/logo.png"
+description = "Example Agent written in Python"
+entry = "src/main.py:ExampleAgent"
+debuggable = true
+
+[requirements]
+min_api_level = 10700
+models = [ "Booster T1", "Booster K1" ]
