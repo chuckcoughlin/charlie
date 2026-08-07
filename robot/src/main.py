@@ -11,9 +11,7 @@ from booster_agent_framework import (
     DefaultStateIconComponent,
     LocaleString,
 )
-
 from boosteros.robots.booster import BoosterRobot
-
 
 WALK_PAGE_ID: str = "walk_page"
 
