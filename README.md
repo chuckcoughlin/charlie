@@ -14,10 +14,10 @@ These customizations are described in a series of guides. See [Admin](http://git
 
  The repository describes the following customizations:
   * Bow - perform an additional action when in Booster mode
-  * Introduce - robot counts 1,2,3 ... as a precursor to a dance
-  * Jig - this is an additonal dance, an Irish jig
+  * Introduce - robot delays, then counts 1,2,3 ... as a precursor to a dance
+  * Jig - this is an additional dance, an Irish jig
   * Navigate - create an autonomous environment where the robot roams a physical space after being trained in a simulation
-  * Play - combine a series of actions into a single hands-off program
+  * Sequence - combine a series of actions into a single named sequence
 
  ![Charlie](/images/CharlieSitting3.jpeg)
  ```                  Charlie in Study     ```

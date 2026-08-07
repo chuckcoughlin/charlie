@@ -38,15 +38,16 @@ Booster Studio is the preferred development environment for robot custom agents.
 
 ### Python <a id="python_ide"></a>
 
-Check for the latest version of Python at [python.org](https://www.python.org/downloads). The installed version must be 3.14.6 or greater.
+Check for the latest version of Python at [python.org](https://www.python.org/downloads). The installed version must be 3.14.6 or greater. Install certificates as directed. Add `/Library/Frameworks/Python.framework/Versions/3.14.6/bin` to the `PATH` variable.
 
 Then install the following packages:
 ```
+    python3 -m pip install --upgrade pip
     python3 -m pip install boosteros
     python3 -m pip install boosteros[brain]    
 ```
 
-We have chosen `PyCharm` as our Python editor. It can be downloaded from [here](https://https://www.jetbrains.com/pycharm/download/download-thanks.html?platform=macM1) See [PyCharm Help](https://www.jetbrains.com/help/pycharm/).
+We have chosen `PyCharm` as our Python editor. It can be downloaded from [here](https://https://www.jetbrains.com/pycharm/download/download-thanks.html?platform=macM1) Configure the python interpreter as `/Library/Frameworks/Python.framework/Versions/3.24`. For additional assistance, see [PyCharm Help](https://www.jetbrains.com/help/pycharm/).
 
 ### Docker <a id="docker_desktop"></a>
   Docker is used to create a test container for a virtual image of the robot. The install link is [here](https://www.docker.com/products/docker-desktop)
