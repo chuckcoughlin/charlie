@@ -1,0 +1,5 @@
+import sys
+print(sys.executable)                    # Path to interpreter executable
+print(sys.version)                       # Version of interpreter
+pip list --outdated                      # List packages which are outdated
+pip install --upgrade boosteros          # Upgrade a package to the latest
