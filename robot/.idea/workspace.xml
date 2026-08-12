@@ -5,16 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4fcfda3d-7504-42a4-adaf-149512fdb19c" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../tools/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../tools/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../tools/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../tools/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../tools/.idea/tools.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../tools/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dev/bin/view_config.sh" beforeDir="false" afterPath="$PROJECT_DIR$/../dev/bin/view_config.sh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/robot.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/robot.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../tools/inspect.py" beforeDir="false" afterPath="$PROJECT_DIR$/../tools/inspect.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -104,6 +95,8 @@
       <workItem from="1786243546576" duration="569000" />
       <workItem from="1786303607852" duration="3905000" />
       <workItem from="1786496220829" duration="482000" />
+      <workItem from="1786497509567" duration="1499000" />
+      <workItem from="1786545706793" duration="1271000" />
     </task>
     <servers />
   </component>
