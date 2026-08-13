@@ -10,7 +10,7 @@ The standard setup, configuration and operational parameters are fully documente
 ***
 ## Table of Contents <a id="table-of-contents"></a>
   * [First Contact](#initialization)
-  * [System Setup](#system)
+  * [Software Deployment(#deployment)
   * [Software Development](#software)
     * [Booster Studio](#studio)
     * [Python](#python_ide)
@@ -23,7 +23,7 @@ Neither of the MacOSX machines used for development have ethernet ports. Consequ
 To check the firmware version:
 ``   cat /opt/booster/version.txt`
 
-## System Setup <a id="system"></a>
+## Software Deployment <a id="deployment"></a>
 
 This section describes the use of remote shell to login to the robot directly and to transfer code to the robot.
 
