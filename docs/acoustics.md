@@ -1,6 +1,7 @@
 # Acoustics
 
-This document deals with speech and hearing for the Booster K1. By default the iChat agent is provided with a speech interface.
+This document deals with speech and hearing for the Booster K1. By default the iChat agent is provided with a speech interface. Aside from some straightforward
+control commands, speech communication is forwarded to `ChatGPT` (with a configurable preamble).
 
 
 ***************************************************************

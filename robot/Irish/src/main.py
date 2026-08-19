@@ -1,5 +1,5 @@
 # coding: utf-8
-"""Charlie - Custom agent based on Booster Studio Demo"""
+"""Example Agent - Python version demonstrating booster_agent_framework usage."""
 
 from typing import cast
 
@@ -11,7 +11,9 @@ from booster_agent_framework import (
     DefaultStateIconComponent,
     LocaleString,
 )
+
 from boosteros.robots.booster import BoosterRobot
+
 
 WALK_PAGE_ID: str = "walk_page"
 
