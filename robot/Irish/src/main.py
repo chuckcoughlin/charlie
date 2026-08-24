@@ -14,6 +14,8 @@ from booster_agent_framework import (
 
 from boosteros.robots.booster import BoosterRobot
 
+Here's some bad code, ---
+
 
 WALK_PAGE_ID: str = "walk_page"
 
