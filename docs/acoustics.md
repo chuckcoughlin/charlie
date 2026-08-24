@@ -16,4 +16,6 @@ The default speech agent, iChat, interacts with ChatGPT. This section describes 
 See [Voice Interaction Manual](https://docs.booster.tech/docs/product-manual/k1/voice-interaction/intro)
 
 ## Speech Agent<a id="agent"></a>
-A custom speech agent.
+Define a custom persona [here](https://hichat.booster.tech/hichathub/agents).
+The currrent robot's persona `Charlie` is bound to our physical robot using
+directions found on the site.
