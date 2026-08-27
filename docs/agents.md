@@ -14,7 +14,7 @@ This guide describes the custom agent, `Irish` which contains the following cust
 
 ***************************************************************
 ## Table of Contents <a id="table-of-contents"></a>
- * [General](#controllers)
+ * [Controls](#controls)
  * [Countin](#countin)
  * [Jig](#jig)
  * [Bow](#bow)
@@ -22,8 +22,12 @@ This guide describes the custom agent, `Irish` which contains the following cust
 
 
 *********************************************************
-## General <a id="controllers"></a>
-### Robot Controller
+## Controls <a id="controls"></a>
+#### Robot
+The `F1` button on the robot's shoulder is re-programmed so that it's press triggers the Irish agent's fixed sequence of
+actions: `Countin`,`Jig` and `Bow`. The robot mode must be `WALKING`, otherwise nothing will happen.
+
+#### Controller
 The controller is powered (on or off) by pressing the "home" button. "Led 4" is illuminated when contact with the robot is live.
 
 ![Charlie](/images/controller.jpeg)
@@ -31,5 +35,5 @@ The controller is powered (on or off) by pressing the "home" button. "Led 4" is 
 
 The controller that is supplied with the robot is customizable.
 
-### Android App
+#### Android App
 The Android application is customizable.

@@ -1,0 +1,56 @@
+2026-08-27 12:09:00.607 [info] [Main] [BoosterMetrics] Set device_id: ac20d7db28bbbb7007cd063063fd046b312ddacc014e1ae82808754a1b61f2cc
+2026-08-27 12:09:00.607 [info] [Main] [BoosterAPM] Set device_id: ac20d7db28bbbb7007cd063063fd046b312ddacc014e1ae82808754a1b61f2cc
+2026-08-27 12:09:00.639 [info] [Main] [CSS_DEV] Built mode discovered 11 css modules
+2026-08-27 12:09:00.741 [info] [Main] update#initialize - starting update service initialization {"isBuilt":true,"disableUpdates":false,"updateUrl":"https://api.booster.tech/api/v1/booster_studio/version","commit":"ccec18b7c0ea8dc5e9ac076c59610057a44b7c66","quality":"stable","target":"user"}
+2026-08-27 12:09:00.742 [info] [Main] update#initialize - resolved update mode {"updateMode":"default","quality":"stable"}
+2026-08-27 12:09:00.742 [info] [Main] update#buildUpdateFeedUrl - macOS update URL created {"assetID":"darwin-universal","quality":"stable","commit":"ccec18b7c0ea8dc5e9ac076c59610057a44b7c66","url":"https://api.booster.tech/api/v1/booster_studio/version"}
+2026-08-27 12:09:00.742 [info] [Main] update#setState idle {}
+2026-08-27 12:09:00.923 [info] [Main] [boosterNative] Synced Pyodide runtime to /Users/chuckc/Library/Application Support/Booster Studio/pyodide
+2026-08-27 12:09:00.923 [info] [Main] [boosterNative] Loading native-addon from /Applications/Booster Studio.app/Contents/Resources/app/booster-native/index.cjs
+2026-08-27 12:09:00.937 [info] [Main] [boosterNative] Initializing native-addon statics=/Applications/Booster Studio.app/Contents/Resources/app/booster-native/statics data=/Users/chuckc/Library/Application Support/Booster Studio logs=/Users/chuckc/Library/Application Support/Booster Studio/logs/20260827T120900/booster-native
+2026-08-27 12:09:02.783 [info] [Extension Host] Extension host with pid 43959 started
+2026-08-27 12:09:02.783 [info] [Extension Host] Skipping acquiring lock for /Users/chuckc/Library/Application Support/Booster Studio/User/workspaceStorage/e02b700484af3d965da7228ee047b503.
+2026-08-27 12:09:03.065 [info] [Main] update#buildUpdateFeedUrl - macOS update URL created {"assetID":"darwin-universal","quality":"stable","commit":"ccec18b7c0ea8dc5e9ac076c59610057a44b7c66","url":"https://api.booster.tech/api/v1/booster_studio/version"}
+2026-08-27 12:09:03.065 [info] [Main] update#isLatestVersion - checking update server {"url":"https://api.booster.tech/api/v1/booster_studio/version","headers":{"User-Agent":"Code/1.110.1 Darwin/25.6.0"}}
+2026-08-27 12:09:03.072 [info] [Extension Host] ExtensionService#_doActivateExtension vscode.emmet, startup: false, activationEvent: 'onLanguage'
+2026-08-27 12:09:03.089 [info] [Extension Host] ExtensionService#_doActivateExtension vscode.terminal-suggest, startup: false, activationEvent: 'onTerminalShellIntegration:*'
+2026-08-27 12:09:03.206 [info] [Extension Host] ExtensionService#_doActivateExtension vscode.git-base, startup: true, activationEvent: '*', root cause: vscode.git
+2026-08-27 12:09:03.208 [info] [Extension Host] ExtensionService#_doActivateExtension ms-python.python, startup: true, activationEvent: 'workspaceContains:.venv'
+2026-08-27 12:09:03.237 [info] [Main] [boosterNative] native-addon initialized.
+2026-08-27 12:09:03.339 [info] [Extension Host] ExtensionService#_doActivateExtension vscode.git, startup: true, activationEvent: '*'
+2026-08-27 12:09:03.499 [info] [Extension Host] Eager extensions activated
+2026-08-27 12:09:03.508 [info] [Extension Host] ExtensionService#_doActivateExtension vscode.debug-auto-launch, startup: false, activationEvent: 'onStartupFinished'
+2026-08-27 12:09:03.510 [info] [Extension Host] ExtensionService#_doActivateExtension vscode.merge-conflict, startup: false, activationEvent: 'onStartupFinished'
+2026-08-27 12:09:03.615 [info] [Extension Host] ExtensionService#_doActivateExtension ms-python.vscode-pylance, startup: false, activationEvent: 'api', root cause: ms-python.python
+2026-08-27 12:09:03.995 [info] [workspace-activate] workspace=e02b700484af3d965da7228ee047b503
+2026-08-27 12:09:04.094 [info] [Main] update#isLatestVersion - update server response {"statusCode":200,"headers":{"allow":"GET, HEAD, OPTIONS","connection":"keep-alive","content-language":"en-us","content-length":"1173","content-type":"application/json","cross-origin-opener-policy":"same-origin","date":"Thu, 27 Aug 2026 18:09:03 GMT","referrer-policy":"same-origin","server":"nginx/1.18.0 (Ubuntu)","vary":"Accept-Language, Cookie, origin","x-content-type-options":"nosniff","x-frame-options":"DENY","x-request-id":"59659b7945d740b6964f0591a1f9fb28"}}
+2026-08-27 12:09:04.096 [info] [Main] update#parseUpdateResponse - selected release {"platform":"darwin-universal","requestedQuality":"stable","releaseQuality":"stable","qualityGroup":"stable","version":"ccec18b7c0ea8dc5e9ac076c59610057a44b7c66","productVersion":"1.11.3","timestamp":1783266757224,"hasSha256hash":true}
+2026-08-27 12:09:04.096 [info] [Main] update#isUpdateNewer - build timestamp comparison completed {"candidateProductVersion":"1.11.3","referenceProductVersion":"1.11.3","candidateTimestamp":1783266757224,"referenceTimestamp":1786963505600,"isNewer":false}
+2026-08-27 12:09:06.220 [info] [workspace-activate] Project activated successfully, container is ready: e10ee436e10d02e627f91616c995055fcc21659c4873d2d0c03c5d322a141a9d
+2026-08-27 12:09:06.239 [info] [Extension Host] ExtensionService#_doActivateExtension booster-studio.remote-containers, startup: false, activationEvent: 'onCommand:boosterRemoteContainers.languageBridge.bindAgentProject'
+2026-08-27 12:09:23.173 [info] [Extension Host] ExtensionService#_doActivateExtension ms-python.debugpy, startup: false, activationEvent: 'onLanguage:python'
+2026-08-27 12:09:30.754 [info] [Main] update#checkForUpdates - requested {"explicit":false,"state":"idle","quality":"stable","commit":"ccec18b7c0ea8dc5e9ac076c59610057a44b7c66"}
+2026-08-27 12:09:30.756 [info] [Main] update#checkForUpdates - dispatching platform update check {"explicit":false}
+2026-08-27 12:09:30.756 [info] [Main] update#setState checking for updates {"explicit":false}
+2026-08-27 12:09:30.756 [info] [Main] update#buildUpdateFeedUrl - macOS update URL created {"assetID":"darwin-universal","quality":"stable","commit":"ccec18b7c0ea8dc5e9ac076c59610057a44b7c66","options":{"background":true},"url":"https://api.booster.tech/api/v1/booster_studio/version"}
+2026-08-27 12:09:30.756 [info] [Main] update#doCheckForUpdates - macOS update check started {"explicit":false,"background":true,"currentCommit":"ccec18b7c0ea8dc5e9ac076c59610057a44b7c66","url":"https://api.booster.tech/api/v1/booster_studio/version"}
+2026-08-27 12:09:30.757 [info] [Main] update#doCheckForUpdates - checking macOS update feed through Booster protocol {"url":"https://api.booster.tech/api/v1/booster_studio/version","explicit":false,"background":true}
+2026-08-27 12:09:30.757 [info] [Main] update#fetchAvailableUpdate - checking macOS update server {"url":"https://api.booster.tech/api/v1/booster_studio/version"}
+2026-08-27 12:09:30.987 [info] [Main] update#parseUpdateResponse - selected release {"platform":"darwin-universal","requestedQuality":"stable","releaseQuality":"stable","qualityGroup":"stable","version":"ccec18b7c0ea8dc5e9ac076c59610057a44b7c66","productVersion":"1.11.3","timestamp":1783266757224,"hasSha256hash":true}
+2026-08-27 12:09:30.987 [info] [Main] update#isUpdateNewer - build timestamp comparison completed {"candidateProductVersion":"1.11.3","referenceProductVersion":"1.11.3","candidateTimestamp":1783266757224,"referenceTimestamp":1786963505600,"isNewer":false}
+2026-08-27 12:09:30.988 [info] [Main] update#fetchAvailableUpdate - no macOS update available {"statusCode":200,"update":{"version":"ccec18b7c0ea8dc5e9ac076c59610057a44b7c66","productVersion":"1.11.3","timestamp":1783266757224,"url":"https://ci-cdn.booster.tech/release/Booster Studio-Setup-1.11.3-darwin-arm64.zip","sha256hash":"db27928b41a99f0d5fad4f4f17d1b50407bacffd6eac7dc6cd6d5c16a0255c0f"}}
+2026-08-27 12:09:30.988 [info] [Main] update#setState idle {}
+2026-08-27 12:09:47.573 [info] [Extension Host] ExtensionService#_doActivateExtension vscode.booster-jupyter-bridge, startup: false, activationEvent: 'onCommand:boosterJupyterBridge.registerServer'
+2026-08-27 12:09:48.633 [info] [Extension Host] ExtensionService#_doActivateExtension vscode.ipynb, startup: false, activationEvent: 'onNotebookSerializer:jupyter-notebook'
+2026-08-27 12:13:53.552 [info] [build] workspace=e02b700484af3d965da7228ee047b503
+2026-08-27 12:13:53.553 [info] [build] start
+2026-08-27 12:13:53.724 [info] [build] Building project e02b700484af3d965da7228ee047b503 from host source path: /Users/chuckc/robotics/charlie/robot/Irish
+2026-08-27 12:13:53.937 [info] [build] [0000.1s STEP] Initializing build context
+2026-08-27 12:13:53.938 [info] [build] [0000.1s INFO] Detected build versions: ROS_DISTRO=humble, PYTHON=3.10, UBUNTU_CODENAME=jammy
+[0000.1s INFO] agent dir: /Users/chuckc/robotics/charlie/robot/Irish
+[0000.1s STEP] Loading build and runtime configs
+2026-08-27 12:13:53.938 [info] [build] [0000.1s INFO] Loading runtime config: /Users/chuckc/robotics/charlie/robot/Irish/agent.toml
+2026-08-27 12:13:53.942 [info] [build] [0000.1s ERROR] Invalid field 'entry': syntax error in src/main.py at 17:5: unterminated string literal (detected at line 17)
+2026-08-27 12:13:53.979 [error] [build] Building failed
+2026-08-27 12:13:53.979 [error] [build] result={"result":null,"error":"Building failed","errorCode":10100002}
+2026-08-27 12:13:53.980 [error] [build] failed: Building failed
