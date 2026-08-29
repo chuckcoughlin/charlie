@@ -50,7 +50,7 @@ See
    Place the resulting id in *~/.zshrc*. Export as `DOCKER_ID`. This will be referenced in various utility
    scripts that access the virtual robot.
 
-   To execute programs within the Docker container, for example:
+   To execute utilities within the Docker container, for example:
    ```
      docker exec -it ${DOCKER_ID} /bin/bash
    ```

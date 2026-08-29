@@ -2,8 +2,8 @@ id = "chuckcoughlin.charlie"
 version = "1.0.0"
 name = { en = "Irish", zh = "Irish" }
 logo = "/res/logo.png"
-description = "Example Agent written in Python"
-entry = "src/main.py:ExampleAgent"
+description = "Python Agent for Irish Dancing"
+entry = "src/Irish.py:IrishAgent"
 debuggable = true
 
 [requirements]

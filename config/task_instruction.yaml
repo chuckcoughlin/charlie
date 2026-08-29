@@ -1,7 +1,7 @@
 task_instruction:
   back_board_button_custom: 
     - button_key: "F1"
-      command_key: "ToDampingMode"
+      command_key: "ToIrishAgentMode"
   
   commands:
     - id: "0"
@@ -247,6 +247,18 @@ task_instruction:
           command_key: "ToLionDancePrepare"
         - key_combination: ["LT", "RT", "B"]
           command_key: "ToggleFixArm"                                                                  
+    IrishAgentMode:
+      enter_button:
+        - key_combination: [ "LT", "RT", "HAT_DOWN" ]
+          command_key: "ToIrishAgentMode"
+        - key_combination: [ "A" ]
+          command_key: "Countin"
+        - key_combination: [ "B" ]
+          command_key: "DanceJig"
+        - key_combination: [ "X" ]
+          command_key: "Bow"
+        - key_combination: [ "Y" ]
+          command_key: "ChainActions"
     RobocupMode:
       enter_button: 
         - key_combination: ["LT", "RT", "X"]

@@ -27,13 +27,22 @@ This guide describes the custom agent, `Irish` which contains the following cust
 The `F1` button on the robot's shoulder is re-programmed so that it's press triggers the Irish agent's fixed sequence of
 actions: `Countin`,`Jig` and `Bow`. The robot mode must be `WALKING`, otherwise nothing will happen.
 
+
 #### Controller
-The controller is powered (on or off) by pressing the "home" button. "Led 4" is illuminated when contact with the robot is live.
+The joystick control is powered (on or off) by pressing the "home" button. "Led 4" is illuminated when contact with the robot is live.
 
 ![Charlie](/images/controller.jpeg)
-```                  Controller     ```
+```                  Joystick Control  ```
 
-The controller that is supplied with the robot is customizable.
+With the robot in `WALKING` mode press `L2 + R2 + DOWN` to enter the `Irish` agent.
+
+| Agent | <center>Actions</center> |<center>Buttons</center>
+| :------: | :---------------------- | :----------: |
+| Irish | Countin | A |
+| | Jig | B |
+| | Bow | X |
+| | Chain | Y |
+
 
 #### Android App
 The Android application is customizable.

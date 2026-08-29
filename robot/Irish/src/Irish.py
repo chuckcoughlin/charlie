@@ -1,5 +1,5 @@
 # coding: utf-8
-"""Example Agent - Python version demonstrating booster_agent_framework usage."""
+"""Irish Agent - includes 4 custom actions."""
 
 from typing import cast
 
@@ -22,8 +22,8 @@ COMPONENT_CUSTOM_ACTION: str = "custom_action"
 ROBOT_WAVE_ACTION_ID: str = "hand_wave"
 
 
-class ExampleAgent(AgentBase):
-    """Example agent demonstrating component setup."""
+class IrishAgent(AgentBase):
+    """Irish agent component setup."""
 
     def __init__(self):
         super().__init__(AgentFeatures(enable_auto_getup=True))
@@ -31,9 +31,9 @@ class ExampleAgent(AgentBase):
         self.setup_components()
 
     def on_agent_activated(self):
-        """Called when the Agent is activated."""
+        """Irish Agent activated."""
 
-        self.logger.info("ExampleAgent is activated")
+        self.logger.info("IrishAgent: activated")
 
     def on_agent_close(self):
         """Called when the Agent is closing."""
