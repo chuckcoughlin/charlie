@@ -1,4 +1,5 @@
-# coding: utf-8
+# Copyright 2026. Charles Coughlin. All Rights Reserved.
+#     MIT License.
 """Irish Agent - includes 4 custom actions."""
 
 from typing import cast
@@ -11,11 +12,15 @@ from booster_agent_framework import (
     DefaultStateIconComponent,
     LocaleString,
 )
-
 from boosteros.robots.booster import BoosterRobot
 
+import actions.IrishAction
+import actions.Bow
+import actions.ChainActions
+import actions.Countin
+import actions.DanceJig
 
-WALK_PAGE_ID: str = "walk_page"
+IRISH_PAGE_ID: str = "IrishAgentMode"
 
 COMPONENT_WAVE_ACTION: str = "wave_action"
 COMPONENT_CUSTOM_ACTION: str = "custom_action"
@@ -23,30 +28,29 @@ ROBOT_WAVE_ACTION_ID: str = "hand_wave"
 
 
 class IrishAgent(AgentBase):
-    """Irish agent component setup."""
+    """Irish Agent - includes Countin, DanceJig, Bow and Chain actions."""
 
     def __init__(self):
         super().__init__(AgentFeatures(enable_auto_getup=True))
         self.robot: BoosterRobot = BoosterRobot()
+        self.bow_action = Bow()
+        self.chain_action = ChainLink()
+        self.count_action = Countin()
+        self.page_id = IRISH_PAGE_ID
         self.setup_components()
 
     def on_agent_activated(self):
-        """Irish Agent activated."""
-
         self.logger.info("IrishAgent: activated")
 
     def on_agent_close(self):
-        """Called when the Agent is closing."""
+        self.logger.info("IrishAgent is closing")
 
-        self.logger.info("ExampleAgent is closing")
-
+    # Configure conponents the show on the Android app
     def setup_components(self):
-        """Set up the Agent's button components."""
 
         self.page_proxy = ComponentStatePageProxy(self)
-        walk_page_id = WALK_PAGE_ID
         self.page_proxy.register_page(
-            walk_page_id, lambda *_: self.robot.get_mode() == "walk"
+            self.page_id, lambda *_: self.robot.get_mode() == "walk"
         )
 
         # ---------------------------------------------------------------------
@@ -59,7 +63,7 @@ class IrishAgent(AgentBase):
             False,
             self.on_wave_action_component_click,
         )
-        self.page_proxy.register_component(walk_page_id, wave_action_component)
+        self.page_proxy.register_component(self.page_id, wave_action_component)
 
         # ---------------------------------------------------------------------
         # Customization section

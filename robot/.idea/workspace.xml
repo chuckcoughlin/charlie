@@ -5,22 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4fcfda3d-7504-42a4-adaf-149512fdb19c" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../README.md" beforeDir="false" afterPath="$PROJECT_DIR$/../README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../docs/admin.md" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/admin.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.booster-studio/project.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/robot.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/webResources.xml" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/Irish/src/actions/Bow.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Irish/src/actions/ChainActions.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Irish/src/actions/Countin.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Irish/src/actions/DanceJig.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Irish/src/actions/IrishAction.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../WelcomeScreen/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../WelcomeScreen/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.vscode/launch.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/agent.toml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.toml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/handshake.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/logo.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/wave.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Irish/src/Irish.py" beforeDir="false" afterPath="$PROJECT_DIR$/Irish/src/Irish.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,6 +21,13 @@
   </component>
   <component name="EmbeddingIndexingInfo">
     <option name="cachedIndexableFilesCount" value="12" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
   </component>
   <component name="FlaskConsoleOptions" custom-start-script="import sys; print('Python %s on %s' % (sys.version, sys.platform)); sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;from flask.cli import ScriptInfo, NoAppException&#10;for module in [&quot;main.py&quot;, &quot;wsgi.py&quot;, &quot;app.py&quot;]:&#10;    try: locals().update(ScriptInfo(app_import_path=module, create_app=None).load_app().make_shell_context()); print(&quot;\nFlask App: %s&quot; % app.import_name); break&#10;    except NoAppException: pass">
     <envs>
@@ -50,61 +49,61 @@
   </component>
   <component name="NextEditCompletionFeaturesState">
     <decayedCancelled>
-      <entry key="MS100" value="0.004128976721082907" />
-      <entry key="MS500" value="0.33679633087525035" />
-      <entry key="S2" value="1.1411216638260637" />
-      <entry key="S5" value="1.9649982542755426" />
-      <entry key="S10" value="2.737096408357292" />
-      <entry key="S30" value="4.248332451408208" />
-      <entry key="S60" value="4.987641189439782" />
-      <entry key="M2" value="5.453498568601411" />
-      <entry key="M5" value="5.770797327987786" />
-      <entry key="M10" value="5.883548289189134" />
-      <entry key="M15" value="5.921947917527637" />
-      <entry key="M30" value="5.960763527113647" />
-      <entry key="H1" value="5.980328848255346" />
-      <entry key="H2" value="5.990151156679586" />
-      <entry key="H4" value="5.9950722566374335" />
-      <entry key="D1" value="5.999178247680609" />
-      <entry key="W1" value="5.9998825954977635" />
+      <entry key="MS100" value="1.0000000056074811" />
+      <entry key="MS500" value="1.022374511581268" />
+      <entry key="S2" value="1.3867571853292968" />
+      <entry key="S5" value="1.6838742938125426" />
+      <entry key="S10" value="1.8292747495630808" />
+      <entry key="S30" value="2.516350101397008" />
+      <entry key="S60" value="4.972181567425384" />
+      <entry key="M2" value="10.418168800109951" />
+      <entry key="M5" value="21.44477905301262" />
+      <entry key="M10" value="33.780864309681476" />
+      <entry key="M15" value="44.73979356907942" />
+      <entry key="M30" value="68.27173744198923" />
+      <entry key="H1" value="90.21848186089589" />
+      <entry key="H2" value="105.57732484868349" />
+      <entry key="H4" value="114.71427157283104" />
+      <entry key="D1" value="123.19956246434248" />
+      <entry key="W1" value="124.74059626138789" />
     </decayedCancelled>
     <decayedSelected>
-      <entry key="MS100" value="1.0" />
-      <entry key="MS500" value="1.0000000000011935" />
-      <entry key="S2" value="1.0012464020514509" />
-      <entry key="S5" value="1.0974603279416337" />
-      <entry key="S10" value="1.4357416549040647" />
-      <entry key="S30" value="2.1998625816250357" />
-      <entry key="S60" value="2.5485226661288127" />
-      <entry key="M2" value="2.7596770007093463" />
-      <entry key="M5" value="2.9001215401232896" />
-      <entry key="M10" value="2.9494138854337155" />
-      <entry key="M15" value="2.9661304941983726" />
-      <entry key="M30" value="2.9829921084267172" />
-      <entry key="H1" value="2.9914776896134576" />
-      <entry key="H2" value="2.9957342436266607" />
-      <entry key="H4" value="2.99786597026213" />
-      <entry key="D1" value="2.9996441683326216" />
-      <entry key="W1" value="2.999949162983813" />
+      <entry key="MS100" value="0.0" />
+      <entry key="MS500" value="0.0" />
+      <entry key="S2" value="0.0" />
+      <entry key="S5" value="1.2823538737470727E-186" />
+      <entry key="S10" value="1.551978961671876E-93" />
+      <entry key="S30" value="2.2576956474006777E-31" />
+      <entry key="S60" value="8.164383982312258E-16" />
+      <entry key="M2" value="4.9394172593093834E-8" />
+      <entry key="M5" value="0.0023096341017056856" />
+      <entry key="M10" value="0.08323370227083304" />
+      <entry key="M15" value="0.27493661533715114" />
+      <entry key="M30" value="0.9081827914326327" />
+      <entry key="H1" value="1.650617139036645" />
+      <entry key="H2" value="2.2252744155950794" />
+      <entry key="H4" value="2.5837611145945365" />
+      <entry key="D1" value="2.926238796855871" />
+      <entry key="W1" value="2.989349928661069" />
     </decayedSelected>
     <decayedShown>
-      <entry key="MS100" value="0.005379447991811455" />
-      <entry key="MS500" value="0.5799809744168458" />
-      <entry key="S2" value="1.7393696763720219" />
-      <entry key="S5" value="2.7810791852744976" />
-      <entry key="S10" value="3.94252029676373" />
-      <entry key="S30" value="6.308153786503733" />
-      <entry key="S60" value="7.451201535145849" />
-      <entry key="M2" value="8.166080829579263" />
-      <entry key="M5" value="8.650838999485062" />
-      <entry key="M10" value="8.822702941832402" />
-      <entry key="M15" value="8.881189237546028" />
-      <entry key="M30" value="8.940285963336866" />
-      <entry key="H1" value="8.970065384667716" />
-      <entry key="H2" value="8.985013238668689" />
-      <entry key="H4" value="8.992501749099086" />
-      <entry key="D1" value="8.998749614515383" />
-      <entry key="W1" value="8.999821356915017" />
+      <entry key="MS100" value="1.0306455789750882E-7" />
+      <entry key="MS500" value="0.045220136067147115" />
+      <entry key="S2" value="0.71548662051535" />
+      <entry key="S5" value="1.3155340961068183" />
+      <entry key="S10" value="1.622031912818575" />
+      <entry key="S30" value="2.4329904894022536" />
+      <entry key="S60" value="4.915124919999881" />
+      <entry key="M2" value="10.361500762027903" />
+      <entry key="M5" value="21.389472035645227" />
+      <entry key="M10" value="33.81989429455643" />
+      <entry key="M15" value="44.97952687929864" />
+      <entry key="M30" value="69.15786355855295" />
+      <entry key="H1" value="91.85635687444427" />
+      <entry key="H2" value="107.79567283503958" />
+      <entry key="H4" value="117.29440958149371" />
+      <entry key="D1" value="126.12517310458942" />
+      <entry key="W1" value="127.72985582839011" />
     </decayedShown>
   </component>
   <component name="ProblemsViewState">
@@ -115,34 +114,43 @@
   &quot;associatedIndex&quot;: 4
 }</component>
   <component name="ProjectId" id="3HYhN1iuztacq7FxmiG0eJW5Ed9" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.MCP Project settings loaded&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,
-    &quot;com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/chuckc/robotics/charlie/robot&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;run.code.analysis.last.selected.profile&quot;: &quot;aDefault&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;,
-    &quot;to.speed.mode.migration.done&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.MCP Project settings loaded": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
+    "codeWithMe.voiceChat.enabledByDefault": "false",
+    "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
+    "git-widget-placeholder": "main",
+    "junie.onboarding.icon.badge.shown": "true",
+    "last_opened_file_path": "/Users/chuckc/robotics/charlie/robot/Irish/src/actions",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.jshint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.jshint": "",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "run.code.analysis.last.selected.profile": "aDefault",
+    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable",
+    "to.speed.mode.migration.done": "true"
   }
-}</component>
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/Irish/src/actions" />
+    </key>
+  </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -172,10 +180,43 @@
       <workItem from="1786497509567" duration="1499000" />
       <workItem from="1786545706793" duration="1271000" />
       <workItem from="1786654885019" duration="4286000" />
+      <workItem from="1788123612621" duration="5271000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/Irish/src/actions/ChainActions.py</url>
+          <line>5</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/Irish/src/Irish.py</url>
+          <line>44</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/Irish/src/actions/IrishAction.py</url>
+          <line>3</line>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
