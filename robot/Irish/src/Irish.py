@@ -22,9 +22,9 @@ import actions.DanceJig
 
 IRISH_PAGE_ID: str = "IrishAgentMode"
 
-COMPONENT_WAVE_ACTION: str = "wave_action"
-COMPONENT_CUSTOM_ACTION: str = "custom_action"
-ROBOT_WAVE_ACTION_ID: str = "hand_wave"
+#COMPONENT_WAVE_ACTION: str = "wave_action"
+#COMPONENT_CUSTOM_ACTION: str = "custom_action"
+#ROBOT_WAVE_ACTION_ID: str = "hand_wave"
 
 
 class IrishAgent(AgentBase):
@@ -32,10 +32,11 @@ class IrishAgent(AgentBase):
 
     def __init__(self):
         super().__init__(AgentFeatures(enable_auto_getup=True))
-        self.robot: BoosterRobot = BoosterRobot()
-        self.bow_action = Bow()
-        self.chain_action = ChainLink()
-        self.count_action = Countin()
+        self.robot = BoosterRobot()
+        self.bow_action   = Bow(self.robot)
+        self.chain_action = ChainActions(elf.robot)
+        self.count_action = Countin(self.robot)
+        self.jig_action   = DanceJig(self.robot)
         self.page_id = IRISH_PAGE_ID
         self.setup_components()
 
@@ -45,7 +46,7 @@ class IrishAgent(AgentBase):
     def on_agent_close(self):
         self.logger.info("IrishAgent is closing")
 
-    # Configure conponents the show on the Android app
+    # Configure conponents to show on the Android app
     def setup_components(self):
 
         self.page_proxy = ComponentStatePageProxy(self)
@@ -54,16 +55,10 @@ class IrishAgent(AgentBase):
         )
 
         # ---------------------------------------------------------------------
-        # Example: one ready-to-run action button.
+        # Register the action buttons
         # ---------------------------------------------------------------------
-        wave_action_component = DefaultStateIconComponent(
-            COMPONENT_WAVE_ACTION,
-            LocaleString({"en": "Wave", "zh": "挥手"}),
-            "res/wave.png",
-            False,
-            self.on_wave_action_component_click,
-        )
-        self.page_proxy.register_component(self.page_id, wave_action_component)
+
+        self.page_proxy.register_component(self.page_id, self.bow_action.component)
 
         # ---------------------------------------------------------------------
         # Customization section
@@ -79,7 +74,7 @@ class IrishAgent(AgentBase):
         )
 
         # Register the custom button component on the walk page.
-        self.page_proxy.register_component(walk_page_id, custom_component)
+        self.page_proxy.register_component(self,page_id, custom_component)
 
     def on_custom_component_click(self, component: Component) -> LocaleString | None:
         """Custom button callback."""
