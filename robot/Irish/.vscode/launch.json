@@ -1,0 +1,31 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        
+        {
+            "name": "Debug Irish Agent",
+            "type": "debugpy",
+            "request": "launch",
+            "module": "booster_agent_framework",
+            "args": [
+                "src/Irish.py:IrishAgent"
+            ],
+            "python": "/Users/chuckc/.virtualenvs/.venv/bin/python",
+            "justMyCode": false,
+            "console": "integratedTerminal",
+            "env": {
+                "PYTHONPATH": "${workspaceFolder}/src"
+            }
+        },
+        {
+            "name": "Debug Irish Agent (Current File)",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${file}",
+            "python": "/Users/chuckc/.virtualenvs/.venv/bin/python",
+            "justMyCode": false,
+            "console": "integratedTerminal",
+            "cwd": "${workspaceFolder}"
+        }
+    ]
+}

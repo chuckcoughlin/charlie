@@ -1,6 +1,6 @@
-# Autonomous Operation
+# Training
 
-This document describes the process of implementing autonomous behavior in the robot. It describes both "hands-on" training and training via simulation.
+This document describes the process of implementing autonomous behavior in the robot through training. It describes both "hands-on" operation and training via simulation.
 
 One of Webots, Mujoco, or Isaac Sim is used as the simulation environment to guarantee proper walking dynamics before live mechanical engagement. This guide provides installation instruction for the simulation tool.
 

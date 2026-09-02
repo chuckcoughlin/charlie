@@ -3,5 +3,6 @@
 
 class IrishAction:
     """Base class for actions with the IrishAgent."""
-    def __init__(self,rbt):
-        self.robot = rbt
+    def __init__(self,robot,logger):
+        self.robot = robot
+        self.logger= logger

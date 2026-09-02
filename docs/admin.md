@@ -56,11 +56,10 @@ See
    ```
 
 ## Accessing the Robot <a id="commandline"></a>
-  Neither of the MacOSX machines used for development have ethernet ports. Consequently the first contact must be made through the Android app using a Bluetooth connection. Using the app a wifi network connection can be configured for subsequent communication with the development system.
+  Neither of the MacOSX machines used for development have ethernet ports. Consequently the first contact must be made through the Android app using a Bluetooth connection. Using the app a wifi network connection can be configured for subsequent communication with the development system. The robot IP address is visible from the tablet application.
+  The default password is: 123456
 
   ```
-    # The host address is visible from the tablet pplication
-    # The default password is: 123456
     ssh booster@10.0.0.245
   ```
   To setup password-free access, on the development machine:
@@ -75,6 +74,7 @@ Operational logs are available. `ssh` onto the robot and execute:
    booster-cli log -st YYYYMMDD-hhMMSS -et YYYYMMDD-hhMMSS \
                        -o /home/booster/Documents/logs.zip
 ```
+Alternatively use the script `view_logs.sh` to list log entries generated within the last hour.
 
 ## Updates <a id="updates"></a>
 Software updates for the development system and internal robot are not necessarily released at the same time.
