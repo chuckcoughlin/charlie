@@ -1,11 +1,11 @@
 id = "chuckcoughlin.charlie"
 version = "1.0.0"
 name = { en = "Irish", zh = "Irish" }
-logo = "/res/logo.png"
+logo = "/res/shamrock.png"
 description = "Python Agent for Irish Dancing"
 entry = "src/Irish.py:IrishAgent"
 debuggable = true
 
 [requirements]
 min_api_level = 10700
-models = [ "Booster T1", "Booster K1" ]
+models = [ "Booster K1" ]

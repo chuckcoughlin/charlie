@@ -5,14 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4fcfda3d-7504-42a4-adaf-149512fdb19c" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Irish/src/actions/Bow.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Irish/src/actions/ChainActions.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Irish/src/actions/Countin.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Irish/src/actions/DanceJig.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Irish/src/actions/IrishAction.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../WelcomeScreen/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../WelcomeScreen/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Irish/src/Irish.py" beforeDir="false" afterPath="$PROJECT_DIR$/Irish/src/Irish.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Irish/agent.toml" beforeDir="false" afterPath="$PROJECT_DIR$/Irish/agent.toml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,61 +44,61 @@
   </component>
   <component name="NextEditCompletionFeaturesState">
     <decayedCancelled>
-      <entry key="MS100" value="1.0000000056074811" />
-      <entry key="MS500" value="1.022374511581268" />
-      <entry key="S2" value="1.3867571853292968" />
-      <entry key="S5" value="1.6838742938125426" />
-      <entry key="S10" value="1.8292747495630808" />
-      <entry key="S30" value="2.516350101397008" />
-      <entry key="S60" value="4.972181567425384" />
-      <entry key="M2" value="10.418168800109951" />
-      <entry key="M5" value="21.44477905301262" />
-      <entry key="M10" value="33.780864309681476" />
-      <entry key="M15" value="44.73979356907942" />
-      <entry key="M30" value="68.27173744198923" />
-      <entry key="H1" value="90.21848186089589" />
-      <entry key="H2" value="105.57732484868349" />
-      <entry key="H4" value="114.71427157283104" />
-      <entry key="D1" value="123.19956246434248" />
-      <entry key="W1" value="124.74059626138789" />
+      <entry key="MS100" value="1.3842187974765028" />
+      <entry key="MS500" value="1.8443562743145345" />
+      <entry key="S2" value="2.3219936074423204" />
+      <entry key="S5" value="2.651966511609836" />
+      <entry key="S10" value="2.8118603688086363" />
+      <entry key="S30" value="3.5083395544068816" />
+      <entry key="S60" value="5.9642610393486155" />
+      <entry key="M2" value="11.409867586098322" />
+      <entry key="M5" value="22.43794252443263" />
+      <entry key="M10" value="34.775479263449064" />
+      <entry key="M15" value="45.73503876162221" />
+      <entry key="M30" value="69.26810949060922" />
+      <entry key="H1" value="91.21608472976646" />
+      <entry key="H2" value="106.57592222935384" />
+      <entry key="H4" value="115.71350956740359" />
+      <entry key="D1" value="124.19942606894051" />
+      <entry key="W1" value="125.74057653259352" />
     </decayedCancelled>
     <decayedSelected>
       <entry key="MS100" value="0.0" />
       <entry key="MS500" value="0.0" />
       <entry key="S2" value="0.0" />
-      <entry key="S5" value="1.2823538737470727E-186" />
-      <entry key="S10" value="1.551978961671876E-93" />
-      <entry key="S30" value="2.2576956474006777E-31" />
-      <entry key="S60" value="8.164383982312258E-16" />
-      <entry key="M2" value="4.9394172593093834E-8" />
-      <entry key="M5" value="0.0023096341017056856" />
-      <entry key="M10" value="0.08323370227083304" />
-      <entry key="M15" value="0.27493661533715114" />
-      <entry key="M30" value="0.9081827914326327" />
-      <entry key="H1" value="1.650617139036645" />
-      <entry key="H2" value="2.2252744155950794" />
-      <entry key="H4" value="2.5837611145945365" />
-      <entry key="D1" value="2.926238796855871" />
-      <entry key="W1" value="2.989349928661069" />
+      <entry key="S5" value="1.2580545134797E-186" />
+      <entry key="S10" value="1.5372043890890004E-93" />
+      <entry key="S30" value="2.250508500801774E-31" />
+      <entry key="S60" value="8.151378376687341E-16" />
+      <entry key="M2" value="4.9354815235242396E-8" />
+      <entry key="M5" value="0.002308897797568133" />
+      <entry key="M10" value="0.08322043389111622" />
+      <entry key="M15" value="0.27490739592050706" />
+      <entry key="M30" value="0.9081345307154615" />
+      <entry key="H1" value="1.6505732816623562" />
+      <entry key="H2" value="2.2252448523066217" />
+      <entry key="H4" value="2.5837439516036937" />
+      <entry key="D1" value="2.926235557189196" />
+      <entry key="W1" value="2.989349455869758" />
     </decayedSelected>
     <decayedShown>
-      <entry key="MS100" value="1.0306455789750882E-7" />
-      <entry key="MS500" value="0.045220136067147115" />
-      <entry key="S2" value="0.71548662051535" />
-      <entry key="S5" value="1.3155340961068183" />
-      <entry key="S10" value="1.622031912818575" />
-      <entry key="S30" value="2.4329904894022536" />
-      <entry key="S60" value="4.915124919999881" />
-      <entry key="M2" value="10.361500762027903" />
-      <entry key="M5" value="21.389472035645227" />
-      <entry key="M10" value="33.81989429455643" />
-      <entry key="M15" value="44.97952687929864" />
-      <entry key="M30" value="69.15786355855295" />
-      <entry key="H1" value="91.85635687444427" />
-      <entry key="H2" value="107.79567283503958" />
-      <entry key="H4" value="117.29440958149371" />
-      <entry key="D1" value="126.12517310458942" />
-      <entry key="W1" value="127.72985582839011" />
+      <entry key="MS100" value="0.3842188349213434" />
+      <entry key="MS500" value="0.8632239653189309" />
+      <entry key="S2" value="1.6353708997985832" />
+      <entry key="S5" value="2.2716569742260426" />
+      <entry key="S10" value="2.597070620322173" />
+      <entry key="S30" value="3.422061910101326" />
+      <entry key="S60" value="5.905702312966906" />
+      <entry key="M2" value="11.352447899559607" />
+      <entry key="M5" value="22.38233434189309" />
+      <entry key="M10" value="34.814343615365246" />
+      <entry key="M15" value="45.97464031680373" />
+      <entry key="M30" value="70.15413537867278" />
+      <entry key="H1" value="92.85388965421359" />
+      <entry key="H2" value="108.79422745920799" />
+      <entry key="H4" value="118.29362379450399" />
+      <entry key="D1" value="127.12503236310675" />
+      <entry key="W1" value="128.72983546866013" />
     </decayedShown>
   </component>
   <component name="ProblemsViewState">
@@ -121,35 +116,91 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "RunOnceActivity.MCP Project settings loaded": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
-    "codeWithMe.voiceChat.enabledByDefault": "false",
-    "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
-    "git-widget-placeholder": "main",
-    "junie.onboarding.icon.badge.shown": "true",
-    "last_opened_file_path": "/Users/chuckc/robotics/charlie/robot/Irish/src/actions",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.jshint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.jshint": "",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "run.code.analysis.last.selected.profile": "aDefault",
-    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable",
-    "to.speed.mode.migration.done": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;Python.Bow.executor&quot;: &quot;Run&quot;,
+    &quot;Python.IrishAction.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.MCP Project settings loaded&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
+    &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,
+    &quot;com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/chuckc/robotics/charlie/robot/Irish/src/actions&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.jshint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.jshint&quot;: &quot;&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;run.code.analysis.last.selected.profile&quot;: &quot;aDefault&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;,
+    &quot;to.speed.mode.migration.done&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/Irish/src/actions" />
     </key>
+  </component>
+  <component name="RunManager" selected="Python.Bow">
+    <configuration name="Bow" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="SDK_NAME" value="/Library/Frameworks/Python.framework/Versions/3.14/bin/python3" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Irish/src/actions" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="DEBUG_JUST_MY_CODE" value="false" />
+      <module name="" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="RUN_TOOL" value="" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Irish/src/actions/Bow.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="IrishAction" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="SDK_NAME" value="/Library/Frameworks/Python.framework/Versions/3.14/bin/python3" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Irish/src/actions" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="DEBUG_JUST_MY_CODE" value="false" />
+      <module name="" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="RUN_TOOL" value="" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Irish/src/actions/IrishAction.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
@@ -180,7 +231,8 @@
       <workItem from="1786497509567" duration="1499000" />
       <workItem from="1786545706793" duration="1271000" />
       <workItem from="1786654885019" duration="4286000" />
-      <workItem from="1788123612621" duration="5271000" />
+      <workItem from="1788123612621" duration="6787000" />
+      <workItem from="1788315909980" duration="7000" />
     </task>
     <servers />
   </component>
@@ -218,5 +270,9 @@
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/robot$IrishAction.coverage" NAME="IrishAction Coverage Results" MODIFIED="1788281606860" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Irish/src/actions" />
+    <SUITE FILE_PATH="coverage/robot$Bow.coverage" NAME="Bow Coverage Results" MODIFIED="1788281647945" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Irish/src/actions" />
   </component>
 </project>
