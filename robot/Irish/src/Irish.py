@@ -13,16 +13,12 @@ from booster_agent_framework import (
 )
 from boosteros.robots.booster import BoosterRobot
 
-from actions.Bow import Bow
-from actions.ChainActions import ChainActions
-from actions.Countin import Countin
-from actions.DanceJig import DanceJig
+from chuckcoughlin_charlie.actions.Bow import Bow
+from chuckcoughlin_charlie.actions.ChainActions import ChainActions
+from chuckcoughlin_charlie.actions.Countin import Countin
+from chuckcoughlin_charlie.actions.DanceJig import DanceJig
 
 IRISH_PAGE_ID: str = "IrishAgentMode"
-
-#COMPONENT_WAVE_ACTION: str = "wave_action"
-#COMPONENT_CUSTOM_ACTION: str = "custom_action"
-#ROBOT_WAVE_ACTION_ID: str = "hand_wave"
 
 
 class IrishAgent(AgentBase):

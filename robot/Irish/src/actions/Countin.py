@@ -2,7 +2,7 @@
 #     MIT License.
 
 """Irish Agent - includes 4 custom actions."""
-from IrishAction import IrishAction
+from chuckcoughlin_charlie.actions.IrishAction import IrishAction
 from typing import cast
 from booster_agent_framework import (
     AgentFeatures,
@@ -15,13 +15,13 @@ ACTION_NAME    = "countin"
 COMPONENT_NAME = "count_action"
 
 class Countin(IrishAction):
-    """Within the IrishAgent, perform a bow"""
+    """Within the IrishAgent, perform a count down before dancing"""
 
     def __init__(self,robot,logger):
         super().__init__(robot,logger)
         self.component = DefaultStateIconComponent(
             COMPONENT_NAME,
-            LocaleString({"en": "Bow", "zh": "Bow"}),
+            LocaleString({"en": "Count", "zh": "Count down"}),
             "res/countdown.png",
             False,
             self.on_component_click
@@ -34,7 +34,7 @@ class Countin(IrishAction):
         state_icon = cast(DefaultStateIconComponent, component)
 
         self.logger.info(
-            f"Bow component clicked: {component.id}, "
+            f"Count in component clicked: {component.id}, "
             + f"action: {ACTION_NAME}, state: {state_icon.state}"
         )
 

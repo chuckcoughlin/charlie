@@ -2,7 +2,7 @@
 #     MIT License.
 
 """Irish Agent - includes 4 custom actions."""
-from IrishAction import IrishAction
+from chuckcoughlin_charlie.actions.IrishAction import IrishAction
 
 from typing import cast
 from booster_agent_framework import (

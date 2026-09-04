@@ -2,7 +2,7 @@
 #     MIT License.
 
 """Chain: Execute countin, jig and bow in succession."""
-from IrishAction import IrishAction
+from chuckcoughlin_charlie.actions.IrishAction import IrishAction
 from typing import cast
 from booster_agent_framework import (
     AgentFeatures,
@@ -21,20 +21,20 @@ class ChainActions(IrishAction):
         super().__init__(robot,logger)
         self.component = DefaultStateIconComponent(
             COMPONENT_NAME,
-            LocaleString({"en": "Bow", "zh": "Bow"}),
-            "res/bow.png",
+            LocaleString({"en": "Chain", "zh": "Chain"}),
+            "res/chainlink.png",
             False,
             self.on_component_click
         )
 
     def on_component_click(self, component: Component) -> LocaleString | None:
-        """Handle bow click events by starting or stopping the associated action."""
+        """Handle chain click events by starting or stopping the associated action."""
 
         # Read the icon state to decide whether to start or stop the action.
         state_icon = cast(DefaultStateIconComponent, component)
 
         self.logger.info(
-            f"Bow component clicked: {component.id}, "
+            f"Chain component clicked: {component.id}, "
             + f"action: {ACTION_NAME}, state: {state_icon.state}"
         )
 
