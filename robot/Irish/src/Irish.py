@@ -57,3 +57,4 @@ class IrishAgent(AgentBase):
         self.page_proxy.register_component(self.page_id, self.count_action.component)
         self.page_proxy.register_component(self.page_id, self.jig_action.component)
 
+
