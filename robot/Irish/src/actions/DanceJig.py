@@ -29,6 +29,6 @@ class DanceJig(IrishAction):
             self.on_component_click
         )
 
-        # Called on component click
+    # Called on component click
     def execute(self):
         self.logger.info( f"Executing action {self.name}")

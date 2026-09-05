@@ -20,7 +20,13 @@ Autonomous behavior is established through offline training. One of Webots, Mujo
 *********************************************************
 ## Simulation <a id="simulation"></a>
 `Booster Studio` contains a complete simulation environment which is triggered automatically after a build.
-Any new code can then be exercised before being deployed. 
+Any new code can then be exercised before being deployed by pressing the "activate" icon.
+
+ Here is a view of[Booster Studio](/images/booster_studio_simulator.png) after a build.
+ Note that the custom control panel is displayed.
+```
+Booster Studio Simulation
+```
 
 ## Robot <a id="robot"></a>
 This section describes how to train the robot by repeated executions of a set of actions.

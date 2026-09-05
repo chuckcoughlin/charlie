@@ -27,7 +27,7 @@ class IrishAgent(AgentBase):
     def __init__(self):
         super().__init__(AgentFeatures(enable_auto_getup=True))
         self.robot = BoosterRobot()
-        self.bow_action   = Bow(self,agent)
+        self.bow_action   = Bow(self)
         self.chain_action = ChainActions(self)
         self.count_action = Countin(self)
         self.jig_action   = DanceJig(self)
