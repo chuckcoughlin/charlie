@@ -15,6 +15,7 @@ Charlie Standing
     * [Booster Studio](#studio)
     * [Docker](#docker_desktop)
     * [Python](#python_ide)
+  * [Speech Configuration](#speech)
   * [Accessing the Robot](#commandline)
   * [Logs](#logs)
   * [Updates](#updates)
@@ -54,13 +55,18 @@ See
    ```
      docker exec -it ${DOCKER_ID} /bin/bash
    ```
-
+## Speech Configuration <a id="speech"></a>
+  The default speech agent, iChat, interacts with ChatGPT. There are some customizations of Charlie's speech
+  characteristics described in the [Voice Interaction Manual](https://docs.booster.tech/docs/product-manual/k1/voice-interaction/intro).
+  Define a custom persona [here](https://hichat.booster.tech/hichathub/agents).
+  The currrent robot's persona `Charlie` is bound to our physical robot using
+  directions found on the site.
 ## Accessing the Robot <a id="commandline"></a>
   Neither of the MacOSX machines used for development have ethernet ports. Consequently the first contact must be made through the Android app using a Bluetooth connection. Using the app a wifi network connection can be configured for subsequent communication with the development system. The robot IP address is visible from the tablet application.
   The default password is: 123456
 
   ```
-    ssh booster@10.0.0.245
+    ssh boost er@10.0.0.245
   ```
   To setup password-free access, on the development machine:
   ```

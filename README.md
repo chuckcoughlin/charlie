@@ -15,15 +15,11 @@ running on MacOSX. Communication with the physical robot
  * Bow - perform a stage-appropriate bow action.
  * Chain - combine a series of actions into a named list to be executed sequentially
 
-
- The [Acoustics](http://github.com/chuckcoughlin/charlie/tree/master/docs/acoustics.md) guide describes how to speak to the robot. It also describes methods for extension of the robot's vocabulary and speech patterns.
-
- [Training](http://github.com/chuckcoughlin/charlie/tree/master/docs/training.md) describes simulation and training procedures. Simulation via `Booster Studio` is used to test
+ Offline simulation and training procedures are described in [Training](http://github.com/chuckcoughlin/charlie/tree/master/docs/training.md).  Simulation via `Booster Studio` is used to test
  customizations before installation on the physical robot.
  Some features are developed using machine learning
- techniques. In particular, navigation and obstacle
- avoidance in a indoor setting are developed using
- off-line training techniques.
+ techniques. A second agent is trained in navigation and obstacle
+ avoidance in a indoor setting using these techniques.
 
  ![Charlie](/images/CharlieSitting3.jpeg)
  ```                  Charlie in Study     ```

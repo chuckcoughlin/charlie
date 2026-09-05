@@ -27,10 +27,10 @@ class IrishAgent(AgentBase):
     def __init__(self):
         super().__init__(AgentFeatures(enable_auto_getup=True))
         self.robot = BoosterRobot()
-        self.bow_action   = Bow(self.robot,self.logger)
-        self.chain_action = ChainActions(self.robot,self.logger)
-        self.count_action = Countin(self.robot,self.logger)
-        self.jig_action   = DanceJig(self.robot,self.logger)
+        self.bow_action   = Bow(self,agent)
+        self.chain_action = ChainActions(self)
+        self.count_action = Countin(self)
+        self.jig_action   = DanceJig(self)
         self.page_id = IRISH_PAGE_ID
         self.setup_components()
 

@@ -1,11 +1,13 @@
-# Training
+# Test and Training
 
-This document describes the process of implementing autonomous behavior in the robot through training. It describes both "hands-on" operation and training via simulation.
+This document describes offline test and training trechnoques. `Booster Studio` has a complete simulation environment
+where new agents can be tested before installation on the physical robot.
 
-One of Webots, Mujoco, or Isaac Sim is used as the simulation environment to guarantee proper walking dynamics before live mechanical engagement. This guide provides installation instruction for the simulation tool.
+Autonomous behavior is established through offline training. One of Webots, Mujoco, or Isaac Sim is used as the simulation environment to guarantee proper walking dynamics before live mechanical engagement. This guide provides installation instruction for the simulation tool.
 
 ***************************************************************
 ## Table of Contents <a id="table-of-contents"></a>
+ * [Simulation](#simulation)
  * [Robot](#robot)
     * [Setup](#setup_robot)
     * [Training](#training_robot)
@@ -16,8 +18,13 @@ One of Webots, Mujoco, or Isaac Sim is used as the simulation environment to gua
    * [Installation](#speech)
 
 *********************************************************
+## Simulation <a id="simulation"></a>
+`Booster Studio` contains a complete simulation environment which is triggered automatically after a build.
+Any new code can then be exercised before being deployed. 
+
 ## Robot <a id="robot"></a>
 This section describes how to train the robot by repeated executions of a set of actions.
+
 ### Setup <a id="setup_robot"></a>
 
 
