@@ -20,7 +20,6 @@ from chuckcoughlin_charlie.actions.DanceJig import DanceJig
 
 IRISH_PAGE_ID: str = "IrishAgentMode"
 
-
 class IrishAgent(AgentBase):
     """Irish Agent - includes Countin, DanceJig, Bow and Chain actions."""
 

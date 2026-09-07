@@ -2,7 +2,8 @@
 `Charlie` is a Booster K1 "kid-size" robot manufactured by Booster Robotics.
 
 This repository contains personal modifications to the default robot software and configuration.
-These customizations are described in a series of guides.
+These customizations are described in a series of guides.  The repository is a work in progtress.
+The state of the guides roughly match the state of the project.
 
 See [Admin](http://github.com/chuckcoughlin/charlie/tree/master/docs/admin.md) for a description of the development environment. Python code is developed in a Docker environment
 running on MacOSX. Communication with the physical robot

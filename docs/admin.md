@@ -37,6 +37,10 @@ It is available from [Booster Studio](https://studio.booster.tech/#contact).
 See
  [Quick Start](https://docs.booster.tech/docs/product-manual/booster-studio/quick-start/download-install) for an initial description. Under the `View` menu, the *Command Palette* lists all actions available with the studio.
 
+ Create a "virtual robot" target device. Name it `Virtual Charlie`. It can be created from the "choose robot"
+ option on the right ide of the main menu. Use this virtual robot as the target device
+ for development and initial test.
+
  ### Docker <a id="docker_desktop"></a>
    Docker is used to create a testing container for a virtual image of the robot. The installation guide is [here](https://booster.feishu.cn/wiki/FlUUw1b7IiNxrFkBlnacGhvKnU). You will also be directed here if you attempt to connect to the virtual robot with `Docker` not installed.
    To install click on the "Virtual Robot" to trigger installation of the required resources into the container.
@@ -118,6 +122,13 @@ Connect to the robot using *ssh*.
 
   ```
 
-## Software Deployment <a id="deployment"></a>
+## Deployment <a id="deployment"></a>
   This section describes the process of installing our custom
   code to the robot.
+
+  Start the robot, setting it in `DAMP` mode. Within `Booster Studio` create a target device that is a
+  standin for the physical robot. These can be created from the "choose robot"
+  option on the right ide of the main menu. Connect it and login using user `booster/123456`.
+
+  Then, next to the "Build" button on the main menu bar use the button for "Activate,build, deploy, and run".
+  to build and deploy new code onto the physical robot. 
