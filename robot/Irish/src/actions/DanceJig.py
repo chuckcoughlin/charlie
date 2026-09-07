@@ -14,7 +14,7 @@ from booster_agent_framework import (
 from chuckcoughlin_charlie.actions.IrishAction import IrishAction
 
 NAME    = "jig"
-COMPONENT_NAME = "jg_action"
+COMPONENT_NAME = "jig_action"
 
 class DanceJig(IrishAction):
     """Within the IrishAgent, dance a jig"""
