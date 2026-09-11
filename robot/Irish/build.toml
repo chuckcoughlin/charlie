@@ -2,8 +2,8 @@
 # pip_repos = ["https://pypi.tuna.tsinghua.edu.cn/simple"]
 obfuscation = false
 
-# [python.dependencies]
-# common = ["numpy==1.21.5"]
+[python.dependencies]
+common = ["gTTS"]
 
 [platform]
 supports = ["sim_x86_64", "sim_aarch64", "real_jetson"]

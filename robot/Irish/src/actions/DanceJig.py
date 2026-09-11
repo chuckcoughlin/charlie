@@ -1,17 +1,12 @@
 # Copyright 2026. Charles Coughlin. All Rights Reserved.
 #     MIT License.
 
-"""Irish Agent - includes 4 custom actions."""
-
-from typing import cast
-from booster_agent_framework import (
-    AgentFeatures,
-    Component,
-    ComponentStatePageProxy,
-    DefaultStateIconComponent,
-    LocaleString,
-)
+"""DanceJig - dance a jig."""
 from chuckcoughlin_charlie.actions.IrishAction import IrishAction
+from booster_agent_framework import (
+    DefaultStateIconComponent,
+    LocaleString
+)
 
 NAME    = "jig"
 COMPONENT_NAME = "jig_action"

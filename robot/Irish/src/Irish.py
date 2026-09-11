@@ -2,14 +2,10 @@
 #     MIT License.
 """Irish Agent - includes 4 custom actions."""
 
-from typing import cast
 from booster_agent_framework import (
     AgentBase,
     AgentFeatures,
-    Component,
-    ComponentStatePageProxy,
-    DefaultStateIconComponent,
-    LocaleString,
+    ComponentStatePageProxy
 )
 from boosteros.robots.booster import BoosterRobot
 

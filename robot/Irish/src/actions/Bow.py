@@ -3,9 +3,7 @@
 
 """Bow - perform a stage bow."""
 from chuckcoughlin_charlie.actions.IrishAction import IrishAction
-from typing import cast
 from booster_agent_framework import (
-    Component,
     DefaultStateIconComponent,
     LocaleString
 )

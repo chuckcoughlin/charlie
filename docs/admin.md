@@ -60,11 +60,24 @@ See
      docker exec -it ${DOCKER_ID} /bin/bash
    ```
 ## Speech Configuration <a id="speech"></a>
-  The default speech agent, iChat, interacts with ChatGPT. There are some customizations of Charlie's speech
-  characteristics described in the [Voice Interaction Manual](https://docs.booster.tech/docs/product-manual/k1/voice-interaction/intro).
+  Ennunciating speech requires voice service credentials. These may be obtained from (here)[https://www.volcengine.com]. Create an account, enable its `seed-tts-2.0` service. Obtain an *app_id* and
+  *access_key* to use within your code - as in this sample:
+  ```
+    from boosteros.brain import Speech
+    speech = Speech(provider="doubao",app_id=APP_ID,access_key=ACCESS_KEY,robot=self.agent.robot)
+    audio = speech.speak("Hello world")
+    audio.save("/data/tmp.wav")
+    self.agent.robot.play_sound("/data/tmp.wav").wait()
+  ```
+  Note that the *speak()* method does not exist in the version of `boosteros` available on the MacOSX
+  development system, but it does exist on the robot itself.
+  
+  The default speech agent, iChat, interacts with ChatGPT. There are some customizations available for
+  Charlie's speech characteristics. These are described in the [Voice Interaction Manual](https://docs.booster.tech/docs/product-manual/k1/voice-interaction/intro).
   Define a custom persona [here](https://hichat.booster.tech/hichathub/agents).
   The currrent robot's persona `Charlie` is bound to our physical robot using
   directions found on the site.
+
 ## Accessing the Robot <a id="commandline"></a>
   Neither of the MacOSX machines used for development have ethernet ports. Consequently the first contact must be made through the Android app using a Bluetooth connection. Using the app a wifi network connection can be configured for subsequent communication with the development system. The robot IP address is visible from the tablet application.
   The default password is: 123456
@@ -131,4 +144,4 @@ Connect to the robot using *ssh*.
   option on the right ide of the main menu. Connect it and login using user `booster/123456`.
 
   Then, next to the "Build" button on the main menu bar use the button for "Activate,build, deploy, and run".
-  to build and deploy new code onto the physical robot. 
+  to build and deploy new code onto the physical robot.

@@ -1,5 +1,7 @@
 # Copyright 2026. Charles Coughlin. All Rights Reserved.
 #     MIT License.
+import os.path
+import time
 from abc import ABC, abstractmethod
 from typing import cast
 from booster_agent_framework import (
@@ -7,6 +9,8 @@ from booster_agent_framework import (
     DefaultStateIconComponent,
     LocaleString
 )
+from boosteros.brain import Speech
+from gtts import gTTS
 
 class IrishAction(ABC):
     """Abstract Base class for actions with the IrishAgent."""
@@ -14,6 +18,11 @@ class IrishAction(ABC):
         self.name  = name
         self.agent = agent
         self.logger= agent.logger
+
+    @abstractmethod
+    def execute(self):
+        # Must be implemented in every subclass
+        pass
 
     def on_component_click(self,component: Component) -> LocaleString | None:
             """Handle click event by starting or stopping the associated action."""
@@ -64,7 +73,13 @@ class IrishAction(ABC):
     
             return None
 
-    @abstractmethod
-    def execute(self):
-        # Must be implemented in every subclass
-        pass
+    # Speak the supplied text. 
+    def utter(self,text,path):
+        self.logger.info( f"Utter {text}")
+        if not os.path.isfile(path):
+            speech = gTTS(text=text,lang="en",slow=False)
+            speech.save(path)
+        self.agent.robot.play_sound(path).wait()
+
+    def wait(self,duration):
+        time.sleep(duration)

@@ -3,11 +3,7 @@
 
 """Chain: Execute countin, jig and bow in succession."""
 from chuckcoughlin_charlie.actions.IrishAction import IrishAction
-from typing import cast
 from booster_agent_framework import (
-    AgentFeatures,
-    Component,
-    ComponentStatePageProxy,
     DefaultStateIconComponent,
     LocaleString,
 )
@@ -30,4 +26,8 @@ class ChainActions(IrishAction):
     # Called on component click
     def execute(self):
         self.logger.info( f"Executing action {self.name}")
+        self.agent.count_action.execute()
+        self.agent.jig_action.execute()
+        self.agent.bow_action.execute()
+        self.logger.info( f"Completed action {self.name}")
 
