@@ -2,7 +2,7 @@
 #     MIT License.
 
 """Chain: Execute countin, jig and bow in succession."""
-from chuckcoughlin_charlie.actions.IrishAction import IrishAction
+from .IrishAction import IrishAction
 from booster_agent_framework import (
     DefaultStateIconComponent,
     LocaleString,

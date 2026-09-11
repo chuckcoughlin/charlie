@@ -2,7 +2,7 @@
 #     MIT License.
 
 """Countin - perform a count down before dancing."""
-from chuckcoughlin_charlie.actions.IrishAction import IrishAction
+from .IrishAction import IrishAction
 from booster_agent_framework import (
     DefaultStateIconComponent,
     LocaleString

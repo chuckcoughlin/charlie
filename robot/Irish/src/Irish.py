@@ -9,10 +9,10 @@ from booster_agent_framework import (
 )
 from boosteros.robots.booster import BoosterRobot
 
-from chuckcoughlin_charlie.actions.Bow import Bow
-from chuckcoughlin_charlie.actions.ChainActions import ChainActions
-from chuckcoughlin_charlie.actions.Countin import Countin
-from chuckcoughlin_charlie.actions.DanceJig import DanceJig
+from actions.Bow import Bow
+from actions.ChainActions import ChainActions
+from actions.Countin import Countin
+from actions.DanceJig import DanceJig
 
 IRISH_PAGE_ID: str = "IrishAgentMode"
 

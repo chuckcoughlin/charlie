@@ -9,7 +9,6 @@ from booster_agent_framework import (
     DefaultStateIconComponent,
     LocaleString
 )
-from boosteros.brain import Speech
 from gtts import gTTS
 
 class IrishAction(ABC):
