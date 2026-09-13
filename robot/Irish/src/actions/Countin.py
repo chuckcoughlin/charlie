@@ -8,15 +8,16 @@ from booster_agent_framework import (
     LocaleString
 )
 
+# Storage manager requires that files be relative paths
 NAME    = "countin"
 BEAT    = 0.75  # seconds
 COMPONENT_NAME = "count_action"
 ONE = "one"
-ONE_PATH = "/data/local/one.mp3"
+ONE_PATH = "cache/data/one.mp3"
 TWO = "two"
-TWO_PATH = "/data/local/two.mp3"
+TWO_PATH = "cache/data/two.mp3"
 THREE = "three"
-THREE_PATH = "/data/local/three.mp3"
+THREE_PATH = "cache/data/three.mp3"
 
 
 class Countin(IrishAction):

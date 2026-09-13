@@ -1,8 +1,9 @@
 # Copyright 2026. Charles Coughlin. All Rights Reserved.
 #     MIT License.
-import os.path
+import os
 import time
 from abc import ABC, abstractmethod
+from pathlib import Path
 from typing import cast
 from booster_agent_framework import (
     Component,
@@ -41,9 +42,8 @@ class IrishAction(ABC):
                     self.execute()
                 except Exception as e:
                     self.logger.warn(
-                        f"Action start skipped: component_id={component.id}, "
-                        + f"action_id={self.name}, "
-                        + f"error={e.__class__.__name__}: {e}"
+                          f"Exception executing {self.name}: "
+                        + f"{e.__class__.__name__}: {e}"
                     )
                     return LocaleString(
                         {
@@ -75,10 +75,23 @@ class IrishAction(ABC):
     # Speak the supplied text. 
     def utter(self,text,path):
         self.logger.info( f"Utter {text}")
-        if not os.path.isfile(path):
+        smgr = self.agent.storage_manager
+        if not smgr.file_exists(path):
             speech = gTTS(text=text,lang="en",slow=False)
             speech.save(path)
-        self.agent.robot.play_sound(path).wait()
+        if smgr.file_exists(path): 
+            try: 
+                self.agent.robot.play_sound(path).wait()
+            except Exception as e:
+                self.logger.warn(
+                          f"Exception playing: {text} "
+                        + f"{e.__class__.__name__}: {e}"
+                    )
+
+        else:
+           self.logger.info( f"Failed to generate file for: {text}") 
+           
 
     def wait(self,duration):
+        self.logger.info( f"WAIT: {duration} secs") 
         time.sleep(duration)
