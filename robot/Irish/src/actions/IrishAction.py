@@ -1,6 +1,7 @@
 # Copyright 2026. Charles Coughlin. All Rights Reserved.
 #     MIT License.
 import os
+import threading
 import time
 from abc import ABC, abstractmethod
 from pathlib import Path
@@ -14,63 +15,66 @@ from gtts import gTTS
 
 class IrishAction(ABC):
     """Abstract Base class for actions with the IrishAgent."""
-    def __init__(self,name,agent):
-        self.name  = name
+    def __init__(self, name, agent):
+        self.name = name
         self.agent = agent
-        self.logger= agent.logger
+        self.logger = agent.logger
+        self._worker: threading.Thread | None = None
+        self._stop_event = threading.Event()
 
     @abstractmethod
     def execute(self):
         # Must be implemented in every subclass
         pass
 
-    def on_component_click(self,component: Component) -> LocaleString | None:
-            """Handle click event by starting or stopping the associated action."""
-    
-            # Read the icon state to decide whether to start or stop the action.
-            state_icon = cast(DefaultStateIconComponent, component)
-    
-            self.logger.info(
-                f"Component clicked: {component.id}, "
-                + f"action: {self.name}, state: {state_icon.state}"
-            )
-    
-            if not state_icon.state:
+    def on_component_click(self, component: Component) -> LocaleString | None:
+        """Handle click event by starting or stopping the associated action."""
+
+        # Read the icon state to decide whether to start or stop the action.
+        state_icon = cast(DefaultStateIconComponent, component)
+
+        self.logger.info(
+            f"Component clicked: {component.id}, "
+            + f"action: {self.name}, state: {state_icon.state}"
+        )
+
+        if not state_icon.state:
+            # Already running — stop it
+            if self._worker is not None and self._worker.is_alive():
+                self._stop_event.set()
+                self._worker.join(timeout=2.0)
+                self._worker = None
+                self._stop_event.clear()
+        else:
+            # Not running — start it on a background thread
+            state_icon.state = True
+            self.agent.component_manager.update_component(state_icon)
+
+            self._stop_event.clear()
+
+            def _run():
                 try:
-                    # Start the action when the component is currently inactive.
-                    #_ = self.robot.do_action(ROBOT_WAVE_ACTION_ID)
                     self.execute()
                 except Exception as e:
                     self.logger.warn(
-                          f"Exception executing {self.name}: "
+                        f"Exception executing {self.name}: "
                         + f"{e.__class__.__name__}: {e}"
                     )
-                    return LocaleString(
-                        {
-                            "en": "Action running, please wait.",
-                            "zh": "动作进行中，请稍后再试",
-                        }
-                    )
-            else:
-                # Cancel the active action task when the component is already active.
-                active_tasks = self.agent.robot.get_active_tasks(
-                    filter=lambda info: (
-                        info.type == "action" and info.task_id == self.name
-                    )
-                )
-                if active_tasks:
-                    active_tasks[0].cancel()
-                else:
-                    self.logger.warn(
-                        f"No active action task to cancel: component_id={component.id}, "
-                        + f"action_id={self.name}"
-                    )
-    
-            # Keep the component state in sync with the action state shown in the UI.
-            state_icon.state = not state_icon.state
-            self.agent.component_manager.update_component(state_icon)
-    
+                finally:
+                    # Reset UI state when action finishes
+                    state_icon.state = False
+                    self.agent.component_manager.update_component(state_icon)
+                    self._worker = None
+
+            self._worker = threading.Thread(target=_run, daemon=True)
+            self._worker.start()
             return None
+
+        # Toggle state for stop path
+        state_icon.state = not state_icon.state
+        self.agent.component_manager.update_component(state_icon)
+
+        return None
 
     # Speak the supplied text. 
     def utter(self,text,path):
@@ -92,6 +96,15 @@ class IrishAction(ABC):
            self.logger.info( f"Failed to generate file for: {text}") 
            
 
-    def wait(self,duration):
-        self.logger.info( f"WAIT: {duration} secs") 
-        time.sleep(duration)
+    def wait(self, duration):
+        """Sleep for the given duration, but return early if the action is stopped."""
+        self.logger.info(f"WAIT: {duration} secs")
+        # Poll the stop event in small increments so we can abort quickly
+        elapsed = 0.0
+        interval = 0.05  # 50 ms polling
+        while elapsed < duration:
+            if self._stop_event.is_set():
+                self.logger.info(f"Wait interrupted by stop at {elapsed:.2f}s")
+                return
+            time.sleep(interval)
+            elapsed += interval

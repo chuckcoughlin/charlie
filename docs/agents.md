@@ -42,7 +42,19 @@ With the robot in `WALKING` mode press `L2 + R2 + DOWN` to enter the `Irish` age
 | | Jig | B |
 | | Bow | X |
 | | Chain | Y |
-
+```
 
 #### Android App
 The Android application is customizable.
+
+## Bow <a id="bow"></a>
+#### Bow, Stand and Wave
+
+The `Bow`, `Stand` and `Wave` actions were created using the `Easy Teach` feature of the live robot.
+Using this technique the developer positions limbs into a series of poses that are then saved for
+later playback.
+
+Use the Android app `Customize` feature and record a new action. Once complete, find the resulting
+*.json* file in a subdirectory of
+``` /opt/booster/booster_agent_data/data/agent_storage/chuckcoughlin.charlie/orchestrations
+```

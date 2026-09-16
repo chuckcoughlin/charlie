@@ -8,10 +8,26 @@ debuggable = true
 
 [requirements]
 min_api_level = 10700
-models = [ "Booster K1" ]
+models = [ "Booster T1", "Booster K1" ]
 
 [component_shortcuts]
 [[component_shortcuts.shortcut_list]]
 id="Irish"
 shortcut = ["LT","RT","DOWN"]
 locale_name = {en = "Irish",zh = "Irish"}
+[[component_shortcuts.shortcut_list]]
+id="bow_action"
+shortcut = ["X"]
+locale_name = {en = "Bow", zh = "Bow"}
+[[component_shortcuts.shortcut_list]]
+id="chain_action"
+shortcut = ["Y"]
+locale_name = {en = "Chain", zh = "Chain"}
+[[component_shortcuts.shortcut_list]]
+id="count_action"
+shortcut = ["A"]
+locale_name = {en = "Count", zh = "Count down"}
+[[component_shortcuts.shortcut_list]]
+id="jig_action"
+shortcut = ["B"]
+locale_name = {en = "Jig", zh = "Irish jig"}

@@ -60,22 +60,17 @@ See
      docker exec -it ${DOCKER_ID} /bin/bash
    ```
 ## Speech Configuration <a id="speech"></a>
-  Ennunciating speech requires voice service credentials. These may be obtained from (here)[https://www.volcengine.com]. Create an account, enable its `seed-tts-2.0` service. Obtain an *app_id* and
-  *access_key* to use within your code - as in this sample:
+  We use the Google Text-to-Speech module for enunciation of text strings. Install on the robot
+  and in the development environment by
   ```
-    from boosteros.brain import Speech
-    speech = Speech(provider="doubao",app_id=APP_ID,access_key=ACCESS_KEY,robot=self.agent.robot)
-    audio = speech.speak("Hello world")
-    audio.save("/data/tmp.wav")
-    self.agent.robot.play_sound("/data/tmp.wav").wait()
+     pip3 install gTTS
   ```
-  Note that the *speak()* method does not exist in the version of `boosteros` available on the MacOSX
-  development system, but it does exist on the robot itself.
-  
+  Within `BoosterStudio` add `gTTS` to the Python dependencies in the *build.toml* file.
+
   The default speech agent, iChat, interacts with ChatGPT. There are some customizations available for
   Charlie's speech characteristics. These are described in the [Voice Interaction Manual](https://docs.booster.tech/docs/product-manual/k1/voice-interaction/intro).
   Define a custom persona [here](https://hichat.booster.tech/hichathub/agents).
-  The currrent robot's persona `Charlie` is bound to our physical robot using
+  The currrent robot's persona, `Charlie`, is bound to our physical robot using
   directions found on the site.
 
 ## Accessing the Robot <a id="commandline"></a>
