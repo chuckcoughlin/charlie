@@ -11,15 +11,15 @@ from booster_agent_framework import (
 NAME    = "wave"
 COMPONENT_NAME = "wave_action"
 
-class DanceJig(IrishAction):
+class Wave(IrishAction):
     """Within the IrishAgent, wave right hand"""
 
     def __init__(self,agent):
         super().__init__(NAME,agent)
         self.component = DefaultStateIconComponent(
             COMPONENT_NAME,
-            LocaleString({"en": "Jig", "zh": "Irish jig"}),
-            "res/irishjig.png",
+            LocaleString({"en": "Wave", "zh": "Excited wave"}),
+            "res/wave.png",
             False,
             self.on_component_click
         )

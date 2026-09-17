@@ -11,15 +11,15 @@ from booster_agent_framework import (
 NAME    = "stand"
 COMPONENT_NAME = "stand_action"
 
-class DanceJig(IrishAction):
+class Stand(IrishAction):
     """Within the IrishAgent, stand at attention"""
 
     def __init__(self,agent):
         super().__init__(NAME,agent)
         self.component = DefaultStateIconComponent(
             COMPONENT_NAME,
-            LocaleString({"en": "Jig", "zh": "Irish jig"}),
-            "res/irishjig.png",
+            LocaleString({"en": "Stand", "zh": "Stand Attention"}),
+            "res/stand.png",
             False,
             self.on_component_click
         )
