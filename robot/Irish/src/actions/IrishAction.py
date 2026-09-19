@@ -1,6 +1,6 @@
 # Copyright 2026. Charles Coughlin. All Rights Reserved.
 #     MIT License.
-import os
+import json
 import threading
 import time
 from abc import ABC, abstractmethod
@@ -19,6 +19,7 @@ class IrishAction(ABC):
         self.name = name
         self.agent = agent
         self.logger = agent.logger
+        self.trajectory = None
         self._worker: threading.Thread | None = None
         self._stop_event = threading.Event()
 
@@ -27,6 +28,16 @@ class IrishAction(ABC):
         # Must be implemented in every subclass
         pass
 
+    def load_trajectory(self,path):
+        """Load an Easy Teach trajectory from the supplied path."""
+        try:
+            content = self.agent.storage_manager.read_file(path)
+            self._trajectory = json.loads(content)
+            self.logger.info(f"Loaded {self.name} trajectory: {len(self._trajectory)} frames")
+        except Exception as e:
+            self.logger.error(f"Failed to load {self.name} trajectory: {e}")
+            self._trajectory = []
+    
     def on_component_click(self, component: Component) -> LocaleString | None:
         """Handle click event by starting or stopping the associated action."""
 
@@ -75,6 +86,37 @@ class IrishAction(ABC):
         self.agent.component_manager.update_component(state_icon)
 
         return None
+
+    def playback_trajectory(self):
+        if not self._trajectory:
+            self.logger.error(f"No trajectory data available for {self.name} action")
+            return
+
+        # Play back the recorded joint positions
+        prev_ts = None
+        for frame in self._trajectory:
+            # Check for stop
+            if self._stop_event.is_set():
+                self.logger.info(f"{self.name} trajectory stopped")
+                return
+
+            joint_positions = frame["a"]
+            ts = frame["ts"]  # milliseconds
+
+            # Send joint positions to the robot
+            try:
+                self.agent.robot.set_joint_positions(joint_positions)
+            except Exception as e:
+                self.logger.error(f"Failed to set joint positions: {e}")
+
+            # Wait for the appropriate interval
+            if prev_ts is not None:
+                interval = (ts - prev_ts) / 1000.0  # convert ms to seconds
+                if interval > 0:
+                    self.wait(interval)
+            prev_ts = ts
+
+        self.logger.info(f"{self.name} trajectory completed")
 
     # Speak the supplied text. 
     def utter(self,text,path):

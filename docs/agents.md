@@ -9,7 +9,9 @@ This guide describes the custom agent, `Irish` which contains the following cust
   * Countin - pause the robot and then issue a verbal cadence, "1,2,3 ..."
   * Jig - dance an Irish jig for 16 measures
   * Bow - execute a stage bow
-  * Chain - link the 3 actions above into a single sequence
+  * Stand - bring the robot to attention
+  * Wave - raise an arm in celebration
+  * Chain - link the actions above into a single sequence
 
 
 ***************************************************************
@@ -17,7 +19,7 @@ This guide describes the custom agent, `Irish` which contains the following cust
  * [Controls](#controls)
  * [Countin](#countin)
  * [Jig](#jig)
- * [Bow](#bow)
+ * [Bow, Stand, Wave](#bow)
  * [Chain](#chain)
 
 
@@ -47,14 +49,31 @@ With the robot in `WALKING` mode press `L2 + R2 + DOWN` to enter the `Irish` age
 #### Android App
 The Android application is customizable.
 
-## Bow <a id="bow"></a>
-#### Bow, Stand and Wave
+## Bow, Stand, Wave <a id="bow"></a>
+#### Easy Teach
 
-The `Bow`, `Stand` and `Wave` actions were created using the `Easy Teach` feature of the live robot.
-Using this technique the developer positions limbs into a series of poses that are then saved for
-later playback.
+Each of the `Bow`, `Stand` and `Wave` actions were created using the `Easy Teach`
+feature of the live robot. This is available on the *Android* app under the
+`Irish` agent, `Custom` tab and the "+" option.
 
-Use the Android app `Customize` feature and record a new action. Once complete, find the resulting
-*.json* file in a subdirectory of
-``` /opt/booster/booster_agent_data/data/agent_storage/chuckcoughlin.charlie/orchestrations
+For each of the three actions the developer positions limbs into an appropriate
+series of timed poses that are recorded for later playback.
+
+Once recordings were complete, the resulting
+*.json* files was found in a subdirectory of
+```
+/opt/booster/booster_agent_data/data agent_storage
+        /chuckcoughlin.charlie/orchestrations
+```
+and copied back onto the development machine. The recording
+and custom action were then deleted from the live robot.
+
+After this, the `BoosterStudio` *AI Assistant* was asked to generate Python code to
+use the file in an agent that executed the recorded action.
+Starting with a stub version of the `Stand.py` class with an empty *execute* method, then ...
+
+```
+   "Modify Stand.py to use data/stand.json to drive
+    the robot motion. stand.json is the result of an
+    Easy Teach session on the robot"
 ```

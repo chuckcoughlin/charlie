@@ -13,6 +13,8 @@ from .actions.Bow import Bow
 from .actions.ChainActions import ChainActions
 from .actions.Countin import Countin
 from .actions.DanceJig import DanceJig
+from .actions.Stand import Stand
+from .actions.Wave import Wave
 
 IRISH_PAGE_ID: str = "IrishAgentMode"
 
@@ -26,6 +28,8 @@ class IrishAgent(AgentBase):
         self.chain_action = ChainActions(self)
         self.count_action = Countin(self)
         self.jig_action   = DanceJig(self)
+        self.stand_action = Stand(self)
+        self.wave_action  = Wave(self)
         self.page_id = IRISH_PAGE_ID
         self.setup_components()
 
@@ -37,7 +41,6 @@ class IrishAgent(AgentBase):
 
     # Configure conponents to show on the Android app
     def setup_components(self):
-
         self.page_proxy = ComponentStatePageProxy(self)
         self.page_proxy.register_page(
             self.page_id, lambda *_: self.robot.get_mode() == "walk"
@@ -51,5 +54,7 @@ class IrishAgent(AgentBase):
         self.page_proxy.register_component(self.page_id, self.chain_action.component)
         self.page_proxy.register_component(self.page_id, self.count_action.component)
         self.page_proxy.register_component(self.page_id, self.jig_action.component)
+        self.page_proxy.register_component(self.page_id, self.stand_action.component)
+        self.page_proxy.register_component(self.page_id, self.wave_action.component)
 
 
