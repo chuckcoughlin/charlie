@@ -13,11 +13,11 @@ NAME    = "countin"
 BEAT    = 0.75  # seconds
 COMPONENT_NAME = "count_action"
 ONE = "one"
-ONE_PATH = "cache/data/one.mp3"
+ONE_FILE = "one.mp3"
 TWO = "two"
-TWO_PATH = "cache/data/two.mp3"
+TWO_FILE = "two.mp3"
 THREE = "three"
-THREE_PATH = "cache/data/three.mp3"
+THREE_FILE = "three.mp3"
 
 
 class Countin(IrishAction):
@@ -37,11 +37,11 @@ class Countin(IrishAction):
     def execute(self):
         self.logger.info(f"Executing action {self.name}")
         self.wait(BEAT)
-        self.utter(ONE, ONE_PATH)
+        self.utter(ONE, ONE_FILE)
         self.wait(BEAT)
-        self.utter(TWO, TWO_PATH)
+        self.utter(TWO, TWO_FILE)
         self.wait(BEAT)
-        self.utter(THREE, THREE_PATH)
+        self.utter(THREE, THREE_FILE)
         self.wait(BEAT)
         self.wait(BEAT)
         self.logger.info(f"Completed {self.name}")

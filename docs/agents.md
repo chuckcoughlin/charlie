@@ -65,7 +65,7 @@ Once recordings were complete, the resulting
 /opt/booster/booster_agent_data/data agent_storage
         /chuckcoughlin.charlie/orchestrations
 ```
-and copied back onto the development machine. The recording
+and copied back onto the development machine in the agent's `res` directory. The recording
 and custom action were then deleted from the live robot.
 
 After this, the `BoosterStudio` *AI Assistant* was asked to generate Python code to

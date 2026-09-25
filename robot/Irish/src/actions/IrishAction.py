@@ -19,24 +19,27 @@ class IrishAction(ABC):
         self.name = name
         self.agent = agent
         self.logger = agent.logger
-        self.trajectory = None
-        self._worker: threading.Thread | None = None
-        self._stop_event = threading.Event()
+        self.trajectory = []
+        self.worker: threading.Thread | None = None
+        self.stop_requested = threading.Event()
 
     @abstractmethod
     def execute(self):
         # Must be implemented in every subclass
         pass
 
-    def load_trajectory(self,path):
+    def load_trajectory(self,file_string):
         """Load an Easy Teach trajectory from the supplied path."""
+        path = Path("data/"+file_string)
         try:
-            content = self.agent.storage_manager.read_file(path)
-            self._trajectory = json.loads(content)
-            self.logger.info(f"Loaded {self.name} trajectory: {len(self._trajectory)} frames")
+            self.logger.info(f"Root directory = {self.agent.storage_manager.node_config_path}") 
+            self.logger.info(f"Loading {self.name} trajectory at {path}")
+            content = self.agent.storage_manager.read_text_file(path)
+            self.trajectory = json.loads(content)
+            self.logger.info(f"Loaded {self.name} trajectory: {len(self.trajectory)} frames")
         except Exception as e:
             self.logger.error(f"Failed to load {self.name} trajectory: {e}")
-            self._trajectory = []
+            self.trajectory = []
     
     def on_component_click(self, component: Component) -> LocaleString | None:
         """Handle click event by starting or stopping the associated action."""
@@ -46,57 +49,55 @@ class IrishAction(ABC):
 
         self.logger.info(
             f"Component clicked: {component.id}, "
-            + f"action: {self.name}, state: {state_icon.state}"
+            + f"action: {self.name}, running = {state_icon.state}"
         )
 
-        if not state_icon.state:
+        if state_icon.state:
             # Already running — stop it
-            if self._worker is not None and self._worker.is_alive():
-                self._stop_event.set()
-                self._worker.join(timeout=2.0)
-                self._worker = None
-                self._stop_event.clear()
+            if self.worker is not None and self.worker.is_alive():
+                self.stop_requested.set()
+                self.worker.join(timeout=2.0)
+                self.worker = None
+                self.stop_requested.clear()
         else:
             # Not running — start it on a background thread
             state_icon.state = True
             self.agent.component_manager.update_component(state_icon)
-
-            self._stop_event.clear()
-
+            
+            # Run in a worker thread   
             def _run():
                 try:
+                    self.stop_requested.clear()
                     self.execute()
                 except Exception as e:
-                    self.logger.warn(
-                        f"Exception executing {self.name}: "
-                        + f"{e.__class__.__name__}: {e}"
-                    )
+                    self.logger.warn(f"Exception executing {self.name}: "
+                        + f"{e.__class__.__name__}: {e}")
                 finally:
-                    # Reset UI state when action finishes
                     state_icon.state = False
                     self.agent.component_manager.update_component(state_icon)
-                    self._worker = None
+                    self.worker = None
+                    self.stop_requested.clear()
 
             self._worker = threading.Thread(target=_run, daemon=True)
+            self.logger.warn("STARTING WORKER")
             self._worker.start()
             return None
 
-        # Toggle state for stop path
-        state_icon.state = not state_icon.state
+        # Reset UI state when action finishes
+        state_icon.state = False
         self.agent.component_manager.update_component(state_icon)
-
         return None
 
     def playback_trajectory(self):
-        if not self._trajectory:
+        if not self.trajectory:
             self.logger.error(f"No trajectory data available for {self.name} action")
             return
 
         # Play back the recorded joint positions
         prev_ts = None
-        for frame in self._trajectory:
+        for frame in self.trajectory:
             # Check for stop
-            if self._stop_event.is_set():
+            if self.stop_requested.is_set():
                 self.logger.info(f"{self.name} trajectory stopped")
                 return
 
@@ -105,7 +106,8 @@ class IrishAction(ABC):
 
             # Send joint positions to the robot
             try:
-                self.agent.robot.set_joint_positions(joint_positions)
+                self.logger.error(f"Joint Positions: {joint_positions}")
+                self.agent.robot.set_joints(joint_positions)
             except Exception as e:
                 self.logger.error(f"Failed to set joint positions: {e}")
 
@@ -118,12 +120,17 @@ class IrishAction(ABC):
 
         self.logger.info(f"{self.name} trajectory completed")
 
-    # Speak the supplied text. 
-    def utter(self,text,path):
-        self.logger.info( f"Utter {text}")
+    # Speak the supplied text. Files are written to "cache/audio"
+    def utter(self,text,file_string):
         smgr = self.agent.storage_manager
+        root = smgr.node_config_path
+        self.logger.info(f"Root directory = {root}")
+        self.logger.info( f"Utter {text}")
+        path = Path(file_string)
         if not smgr.file_exists(path):
+            self.logger.info( f"Utter : generationg ...")
             speech = gTTS(text=text,lang="en",slow=False)
+            self.logger.info( f"Utter : saving ...")
             speech.save(path)
         if smgr.file_exists(path): 
             try: 
@@ -133,7 +140,6 @@ class IrishAction(ABC):
                           f"Exception playing: {text} "
                         + f"{e.__class__.__name__}: {e}"
                     )
-
         else:
            self.logger.info( f"Failed to generate file for: {text}") 
            
@@ -142,11 +148,5 @@ class IrishAction(ABC):
         """Sleep for the given duration, but return early if the action is stopped."""
         self.logger.info(f"WAIT: {duration} secs")
         # Poll the stop event in small increments so we can abort quickly
-        elapsed = 0.0
-        interval = 0.05  # 50 ms polling
-        while elapsed < duration:
-            if self._stop_event.is_set():
-                self.logger.info(f"Wait interrupted by stop at {elapsed:.2f}s")
-                return
-            time.sleep(interval)
-            elapsed += interval
+        if self.stop_requested.wait(timeout=duration):
+            self.logger.info(f"Wait interrupted by stop request")

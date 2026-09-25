@@ -102,31 +102,29 @@ When an update is available for `Booster Studio` a blue notice will appear in th
 `Help->Booster Studio - Check for Updates`.
 
 #### Booster K1
-The currently installed version is v1.7.2.0-release.00331-2026-07-28-global.
+The currently installed version is 1.8.0.9-release-02011-2026-09-14-global.
 
-Instructions for firmare updates are available [here](https://docs.booster.tech/docs/product-manual/k1/firmware-version/check-version/). There are several ways to install an update. Perhaps the easiest is through `Firmware Upgrade` link on the `Settings` page in the Android app. Make sure both the tablet and robot are fully charged
-before proceeding.
+Instructions for firmare updates are available [here](https://docs.booster.tech/docs/product-manual/k1/firmware-version/software-upgrade/). There are several ways to install an update. Perhaps the easiest is through `Firmware Upgrade` link on the `Settings` page in the Android app. Place the robot in `DAMP` mode. Make sure both the tablet and robot are fully charged before proceeding.
+Currently the update barely succeeds on a single battery charge.
 
 #### After Update
-Connect to the robot using *ssh*.
+
 ```
+  # Connect to the robot using *ssh*.
   # Check the new firmware version
   cat /opt/booster/version.txt`
 
   # In firmware version v1.7, the `boosteros` package is not included.
-  # Install it now. The python version must be >= 3.10.
-  python3 --version
-  python3 -m pip install --upgrade pip
-  python3 -m pip install --upgrade --no-cache-dir \
-                            boosteros==1.1.1 --user
-
+  # Make sure it is there now.
+  python3 -m pip list
+  # Observer boosteros 1.1.1 and booster_robotics_sdk_python 1.5.6
   # Retrieve sample code
   boosteros-examples
   exit
 
   # On development system
-  cd ${CHARLIE_HOME}
-  rsync -r booster@10.0.0.245:/home/booster/boosteros_examples .
+  cd $CHARLIE_HOME/samples
+  rsync -r $BOOSTER:/home/booster/boosteros_examples .
 
   ```
 

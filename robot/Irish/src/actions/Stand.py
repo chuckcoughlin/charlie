@@ -10,7 +10,7 @@ from booster_agent_framework import (
 
 NAME    = "stand"
 COMPONENT_NAME = "stand_action"
-TRAJECTORY_PATH = "data/stand.json"
+TRAJECTORY_FILE = "stand.json"
 
 class Stand(IrishAction):
     """Within the IrishAgent, stand at attention"""
@@ -29,6 +29,6 @@ class Stand(IrishAction):
     # Called on component click
     def execute(self):
         self.logger.info(f"Executing action {self.name}")
-        super().load_trajectory(TRAJECTORY_PATH)
+        super().load_trajectory(TRAJECTORY_FILE)
         super().playback_trajectory()
         self.logger.info(f"{self.name} action completed")

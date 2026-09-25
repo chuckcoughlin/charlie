@@ -10,7 +10,7 @@ from booster_agent_framework import (
 
 NAME    = "bow"
 COMPONENT_NAME = "bow_action"
-TRAJECTORY_PATH = "data/bow.json"
+TRAJECTORY_FILE = "bow.json"
 
 class Bow(IrishAction):
     """Within the IrishAgent, perform a bow"""
@@ -29,6 +29,6 @@ class Bow(IrishAction):
     # Called on component click
     def execute(self):
         self.logger.info(f"Executing action {self.name}")
-        super().load_trajectory(TRAJECTORY_PATH)
+        super().load_trajectory(TRAJECTORY_FILE)
         super().playback_trajectory()
         self.logger.info(f"{self.name} action completed")

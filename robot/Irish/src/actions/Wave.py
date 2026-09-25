@@ -10,7 +10,7 @@ from booster_agent_framework import (
 
 NAME    = "wave"
 COMPONENT_NAME = "wave_action"
-TRAJECTORY_PATH = "data/wave.json"
+TRAJECTORY_FILE = "wave.json"
 
 class Wave(IrishAction):
     """Within the IrishAgent, wave right hand"""
@@ -28,6 +28,6 @@ class Wave(IrishAction):
     # Called on component click
     def execute(self):
         self.logger.info(f"Executing action {self.name}")
-        super().load_trajectory(TRAJECTORY_PATH)
+        super().load_trajectory(TRAJECTORY_FILE)
         super().playback_trajectory()
         self.logger.info(f"{self.name} action completed")
