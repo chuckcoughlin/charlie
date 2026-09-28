@@ -2,7 +2,7 @@
 #     MIT License.
 
 """Wave - wave right hand  using trajectory from Easy Teach."""
-from .IrishAction import IrishAction
+from .IrishPlaybackAction import IrishPlaybackAction
 from booster_agent_framework import (
     DefaultStateIconComponent,
     LocaleString
@@ -12,8 +12,8 @@ NAME    = "wave"
 COMPONENT_NAME = "wave_action"
 TRAJECTORY_FILE = "wave.json"
 
-class Wave(IrishAction):
-    """Within the IrishAgent, wave right hand"""
+class Wave(IrishPlaybackAction):
+    """Within the Irish agent, wave right hand"""
 
     def __init__(self,agent):
         super().__init__(NAME,agent)

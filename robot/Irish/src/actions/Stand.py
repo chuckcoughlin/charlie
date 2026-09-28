@@ -2,7 +2,7 @@
 #     MIT License.
 
 """Stand - stand at attention using recorded trajectory from Easy Teach."""
-from .IrishAction import IrishAction
+from .IrishPlaybackAction import IrishPlaybackAction
 from booster_agent_framework import (
     DefaultStateIconComponent,
     LocaleString
@@ -12,8 +12,8 @@ NAME    = "stand"
 COMPONENT_NAME = "stand_action"
 TRAJECTORY_FILE = "stand.json"
 
-class Stand(IrishAction):
-    """Within the IrishAgent, stand at attention"""
+class Stand(IrishPlaybackAction):
+    """Within the Irish agent, stand at attention"""
 
     def __init__(self, agent):
         super().__init__(NAME, agent)

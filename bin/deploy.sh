@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 # Deploy our customizations to the robot. These actions are in addition to Booster Studio.
 #
 DATA=${CHARLIE_HOME}/robot/Irish/data

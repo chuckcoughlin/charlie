@@ -2,7 +2,7 @@
 #     MIT License.
 
 """Bow - perform a stage bow  using trajectory from Easy Teach."""
-from .IrishAction import IrishAction
+from .IrishPlaybackAction import IrishPlaybackAction
 from booster_agent_framework import (
     DefaultStateIconComponent,
     LocaleString
@@ -12,7 +12,7 @@ NAME    = "bow"
 COMPONENT_NAME = "bow_action"
 TRAJECTORY_FILE = "bow.json"
 
-class Bow(IrishAction):
+class Bow(IrishPlaybackAction):
     """Within the IrishAgent, perform a bow"""
 
     def __init__(self,agent):

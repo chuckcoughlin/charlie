@@ -31,6 +31,15 @@ to be used in several of our utility scripts.
      BOOSTER      = booster@10.0.0.245
      CHARLIE_HOME = ~/robotics/charlie
 ```
+The development system needs the booster packages:
+```
+    python3 -m pip install --upgrade pip
+    python3 -m pip install --upgrade booster
+    python3 -m pip install --upgrade --no-cache-dir boosteros==1.1.1
+    python3 -m pip install --upgrade booster-sdk
+```
+NOTE: On MacOSX the latest `boosteros` is 0.0.0.
+
 ### Booster Studio <a id="studio"></a>
 Booster Studio is the preferred development environment for robot custom agents.
 It is available from [Booster Studio](https://studio.booster.tech/#contact).
@@ -40,6 +49,17 @@ See
  Create a "virtual robot" target device. Name it `Virtual Charlie`. It can be created from the "choose robot"
  option on the right ide of the main menu. Use this virtual robot as the target device
  for development and initial test.
+
+ The Python distribution for the development machine is
+ missing several classes that exist in the Linux distribution
+ within `Docker` and the physical robot. In order to make
+ the development build *whole*, stub classes can be added
+ with the following:
+ ```
+    install_stubs.sh
+```
+It may be necessary to restart the machine for this to take
+effect.
 
  ### Docker <a id="docker_desktop"></a>
    Docker is used to create a testing container for a virtual image of the robot. The installation guide is [here](https://booster.feishu.cn/wiki/FlUUw1b7IiNxrFkBlnacGhvKnU). You will also be directed here if you attempt to connect to the virtual robot with `Docker` not installed.

@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 #  List log entries that have been generated within the last hour.
 #  Robot must be in PREP mode
 #

@@ -1,7 +1,6 @@
-#!/bin/sh
+#!/bin/bash
 # Add data files to the docker image. 
 #
-DOCKER_ID="f4a4cccdeb90"
 DATA=${CHARLIE_HOME}/robot/Irish/data
 STORAGE_MANAGER=/opt/booster/booster_agent_data/data/agent_storage/chuckcoughlin.charlie
 cd $DATA

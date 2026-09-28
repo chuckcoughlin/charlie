@@ -1,8 +1,7 @@
 # Copyright 2026. Charles Coughlin. All Rights Reserved.
 #     MIT License.
-import json
+"""Base class for all actions of the Irish agent"""
 import threading
-import time
 from abc import ABC, abstractmethod
 from pathlib import Path
 from typing import cast
@@ -14,12 +13,11 @@ from booster_agent_framework import (
 from gtts import gTTS
 
 class IrishAction(ABC):
-    """Abstract Base class for actions with the IrishAgent."""
+    """Abstract base class for actions with the Irish agent"""
     def __init__(self, name, agent):
         self.name = name
         self.agent = agent
         self.logger = agent.logger
-        self.trajectory = []
         self.worker: threading.Thread | None = None
         self.stop_requested = threading.Event()
 
@@ -27,20 +25,8 @@ class IrishAction(ABC):
     def execute(self):
         # Must be implemented in every subclass
         pass
-
-    def load_trajectory(self,file_string):
-        """Load an Easy Teach trajectory from the supplied path."""
-        path = Path("data/"+file_string)
-        try:
-            self.logger.info(f"Root directory = {self.agent.storage_manager.node_config_path}") 
-            self.logger.info(f"Loading {self.name} trajectory at {path}")
-            content = self.agent.storage_manager.read_text_file(path)
-            self.trajectory = json.loads(content)
-            self.logger.info(f"Loaded {self.name} trajectory: {len(self.trajectory)} frames")
-        except Exception as e:
-            self.logger.error(f"Failed to load {self.name} trajectory: {e}")
-            self.trajectory = []
     
+    # Run the click action in a background thread.
     def on_component_click(self, component: Component) -> LocaleString | None:
         """Handle click event by starting or stopping the associated action."""
 
@@ -88,37 +74,6 @@ class IrishAction(ABC):
         self.agent.component_manager.update_component(state_icon)
         return None
 
-    def playback_trajectory(self):
-        if not self.trajectory:
-            self.logger.error(f"No trajectory data available for {self.name} action")
-            return
-
-        # Play back the recorded joint positions
-        prev_ts = None
-        for frame in self.trajectory:
-            # Check for stop
-            if self.stop_requested.is_set():
-                self.logger.info(f"{self.name} trajectory stopped")
-                return
-
-            joint_positions = frame["a"]
-            ts = frame["ts"]  # milliseconds
-
-            # Send joint positions to the robot
-            try:
-                self.logger.error(f"Joint Positions: {joint_positions}")
-                self.agent.robot.set_joints(joint_positions)
-            except Exception as e:
-                self.logger.error(f"Failed to set joint positions: {e}")
-
-            # Wait for the appropriate interval
-            if prev_ts is not None:
-                interval = (ts - prev_ts) / 1000.0  # convert ms to seconds
-                if interval > 0:
-                    self.wait(interval)
-            prev_ts = ts
-
-        self.logger.info(f"{self.name} trajectory completed")
 
     # Speak the supplied text. Files are written to "cache/audio"
     def utter(self,text,file_string):
