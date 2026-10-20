@@ -13,8 +13,8 @@ COMPONENT_NAME = "chain_action"
 class ChainActions(IrishAction):
     """Within the IrishAgent, perform a count. jig, bow sequence"""
 
-    def __init__(self,agent):
-        super().__init__(NAME,agent)
+    def __init__(self,agent,robot):
+        super().__init__(NAME,agent,robot)
         self.component = DefaultStateIconComponent(
             COMPONENT_NAME,
             LocaleString({"en": "Chain", "zh": "Chain"}),

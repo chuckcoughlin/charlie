@@ -14,8 +14,8 @@ COMPONENT_NAME = "jig_action"
 class DanceJig(IrishAction):
     """Within the IrishAgent, dance a jig"""
 
-    def __init__(self,agent):
-        super().__init__(NAME,agent)
+    def __init__(self,agent,robot):
+        super().__init__(NAME,agent,robot)
         self.component = DefaultStateIconComponent(
             COMPONENT_NAME,
             LocaleString({"en": "Jig", "zh": "Irish jig"}),

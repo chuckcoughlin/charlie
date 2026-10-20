@@ -1,7 +1,5 @@
 """Type stubs for Booster SDK trajectory data types."""
 
-from typing import List
-
 
 class JointState:
     """State of a single joint."""
@@ -38,12 +36,12 @@ class JointTrajectoryPoint:
 class TrajectoryMeta:
     """Metadata for a trajectory."""
 
-    joint_names: List[str]
+    joint_names: list[str]
     duration: float
 
     def __init__(
         self,
-        joint_names: List[str] = ...,
+        joint_names: list[str] = ...,
         duration: float = ...,
     ) -> None: ...
 
@@ -52,10 +50,10 @@ class TrajectoryData:
     """A complete trajectory for robot execution."""
 
     meta: TrajectoryMeta
-    points: List[JointTrajectoryPoint]
+    points: list[JointTrajectoryPoint]
 
     def __init__(
         self,
         meta: TrajectoryMeta = ...,
-        points: List[JointTrajectoryPoint] = ...,
+        points: list[JointTrajectoryPoint] = ...,
     ) -> None: ...

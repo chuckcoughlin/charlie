@@ -15,7 +15,7 @@ Output: List of TrajectoryData objects suitable for robot.execute_trajectory()
 
 import json
 from typing import List
-from boosteros.types import TrajectoryData, JointState, JointTrajectoryPoint
+from boosteros.types import TrajectoryData, TrajectoryMeta, JointTrajectoryPoint, JointState
 
 # Joint names in the order they appear in Easy Teach recordings
 EASY_TEACH_JOINTS = [
@@ -41,7 +41,7 @@ def millidegrees_to_radians(value: int) -> float:
     return value * MILLIDEGREES_TO_RADIANS
 
 # JSON is the result of an EasyTeach session
-def jsonToTrajectory(json_string: str) -> List[TrajectoryData]:
+def jsonToTrajectory(model:str,json_string: str) -> TrajectoryData:
     """
     Convert an Easy Teach JSON string into a list of TrajectoryData objects.
 
@@ -81,11 +81,11 @@ def jsonToTrajectory(json_string: str) -> List[TrajectoryData]:
         for i,position in enumerate(positions):
             js = JointState(
                 name = EASY_TEACH_JOINTS[i],
-                position = position,
+                position = position
             )
             joints.append(js)
         point = JointTrajectoryPoint(
-           time_from_start=time_from_start,
+        time_from_start=time_from_start,
             joints = joints
         )
         trajectory_points.append(point)
@@ -94,8 +94,13 @@ def jsonToTrajectory(json_string: str) -> List[TrajectoryData]:
     total_duration = (frames[-1]["ts"] - start_ts) / 1000.0
 
     # Create TrajectoryData object with meta and points
+    tmeta = TrajectoryMeta(
+        model = model,
+        duration=total_duration
+    )
     trajectory_data = TrajectoryData(
+        meta = tmeta,
         points=trajectory_points
     )
 
-    return [trajectory_data]
+    return trajectory_data

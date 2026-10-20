@@ -15,8 +15,8 @@ TRAJECTORY_FILE = "stand.json"
 class Stand(IrishPlaybackAction):
     """Within the Irish agent, stand at attention"""
 
-    def __init__(self, agent):
-        super().__init__(NAME, agent)
+    def __init__(self, agent,robot):
+        super().__init__(NAME, agent,robot)
         self.component = DefaultStateIconComponent(
             COMPONENT_NAME,
             LocaleString({"en": "Stand", "zh": "Stand Attention"}),

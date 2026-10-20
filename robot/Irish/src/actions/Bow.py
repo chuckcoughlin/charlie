@@ -15,8 +15,8 @@ TRAJECTORY_FILE = "bow.json"
 class Bow(IrishPlaybackAction):
     """Within the IrishAgent, perform a bow"""
 
-    def __init__(self,agent):
-        super().__init__(NAME,agent)
+    def __init__(self,agent,robot):
+        super().__init__(NAME,agent,robot)
         self.component = DefaultStateIconComponent(
             COMPONENT_NAME,
             LocaleString({"en": "Bow", "zh": "Take a Bow"}),

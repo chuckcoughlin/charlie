@@ -2,6 +2,7 @@
 #     MIT License.
 """Base class for all actions of the Irish agent"""
 import threading
+import traceback
 from abc import ABC, abstractmethod
 from pathlib import Path
 from typing import cast
@@ -12,12 +13,14 @@ from booster_agent_framework import (
 )
 from gtts import gTTS
 
+
 class IrishAction(ABC):
     """Abstract base class for actions with the Irish agent"""
-    def __init__(self, name, agent):
+    def __init__(self, name, agent,robot):
         self.name = name
         self.agent = agent
         self.logger = agent.logger
+        self.robot = robot
         self.worker: threading.Thread | None = None
         self.stop_requested = threading.Event()
 
@@ -58,6 +61,8 @@ class IrishAction(ABC):
                 except Exception as e:
                     self.logger.warn(f"Exception executing {self.name}: "
                         + f"{e.__class__.__name__}: {e}")
+                    error_string = traceback.format_exc()
+                    self.logger.error(error_string)
                 finally:
                     state_icon.state = False
                     self.agent.component_manager.update_component(state_icon)

@@ -23,15 +23,15 @@ class IrishAgent(AgentBase):
 
     def __init__(self):
         super().__init__(AgentFeatures(enable_auto_getup=True))
-        self.robot = BoosterRobot()
-        self.bow_action   = Bow(self)
-        self.chain_action = ChainActions(self)
-        self.count_action = Countin(self)
-        self.jig_action   = DanceJig(self)
-        self.stand_action = Stand(self)
-        self.wave_action  = Wave(self)
+        robot = BoosterRobot()
+        self.bow_action   = Bow(self,robot)
+        self.chain_action = ChainActions(self,robot)
+        self.count_action = Countin(self,robot)
+        self.jig_action   = DanceJig(self,robot)
+        self.stand_action = Stand(self,robot)
+        self.wave_action  = Wave(self,robot)
         self.page_id = IRISH_PAGE_ID
-        self.setup_components()
+        self.setup_components(robot)
 
     def on_agent_activated(self):
         self.logger.info("IrishAgent: activated")
@@ -40,10 +40,10 @@ class IrishAgent(AgentBase):
         self.logger.info("IrishAgent is closing")
 
     # Configure conponents to show on the Android app
-    def setup_components(self):
+    def setup_components(self,robot):
         self.page_proxy = ComponentStatePageProxy(self)
         self.page_proxy.register_page(
-            self.page_id, lambda *_: self.robot.get_mode() == "walk"
+            self.page_id, lambda *_: robot.get_mode() == "walk"
         )
 
         # ---------------------------------------------------------------------
