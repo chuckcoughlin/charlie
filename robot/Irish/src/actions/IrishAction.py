@@ -86,15 +86,16 @@ class IrishAction(ABC):
         root = smgr.node_config_path
         self.logger.info(f"Root directory = {root}")
         self.logger.info( f"Utter {text}")
-        path = Path(file_string)
+        path = Path("cache/audio").joinpath(file_string)
         if not smgr.file_exists(path):
             self.logger.info( f"Utter : generationg ...")
             speech = gTTS(text=text,lang="en",slow=False)
             self.logger.info( f"Utter : saving ...")
-            speech.save(path)
+            fullPath = Path(root).joinpath(path)
+            speech.save(fullPath)
         if smgr.file_exists(path): 
             try: 
-                self.agent.robot.play_sound(path).wait()
+                self.robot.play_sound(path).wait()
             except Exception as e:
                 self.logger.warn(
                           f"Exception playing: {text} "
