@@ -62,7 +62,7 @@ It may be necessary to restart the machine for this to take
 effect.
 
  ### Docker <a id="docker_desktop"></a>
-   Docker is used to create a testing container for a virtual image of the robot. The installation guide is [here](https://booster.feishu.cn/wiki/FlUUw1b7IiNxrFkBlnacGhvKnU). You will also be directed here if you attempt to connect to the virtual robot with `Docker` not installed.
+   `Docker` is used to create a testing container for a virtual image of the robot. The installation guide is [here](https://booster.feishu.cn/wiki/FlUUw1b7IiNxrFkBlnacGhvKnU). You will also be directed here if you attempt to connect to the virtual robot with `Docker` not installed.
    To install click on the "Virtual Robot" to trigger installation of the required resources into the container.
 
    Ubuntu and the Booster core is pre-configured inside the Docker container. Python is also bundled there including the *boosteros* and
@@ -72,12 +72,17 @@ effect.
    ```
     docker ps
    ```
-   Place the resulting id in *~/.zshrc*. Export as `DOCKER_ID`. This will be referenced in various utility
+   Place the resulting id in *~/.bashrc*. Export as `DOCKER_ID`. This will be referenced in various utility
    scripts that access the virtual robot.
 
    To execute utilities within the Docker container, for example:
    ```
      docker exec -it ${DOCKER_ID} /bin/bash
+   ```
+   To copy files from within the `docker` container into the MacOSX filesystem, use *docker cp*. For example
+   to copy the Python SDK in its entirety to the development machine, make a *boosteros* directoy, then:
+   ```
+    docker cp ${DOCKER_ID}:/usr/local/lib/python3.10/dist-packages/boosteros ./boosteros
    ```
 ## Speech Configuration <a id="speech"></a>
   We use the Google Text-to-Speech module for enunciation of text strings. Install on the robot

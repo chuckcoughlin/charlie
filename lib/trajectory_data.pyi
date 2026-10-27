@@ -32,6 +32,11 @@ class JointTrajectoryPoint:
         joints: list[JointState] = ...
     ) -> None: ...
 
+	@property
+    def joint_names(self) -> list[str]:
+        """Joint names in this point."""
+        return [joint.name for joint in self.joints]
+
 
 class TrajectoryMeta:
     """Metadata for a trajectory."""

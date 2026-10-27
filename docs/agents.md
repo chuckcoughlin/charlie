@@ -77,3 +77,15 @@ Starting with a stub version of the `Stand.py` class with an empty *execute* met
     the robot motion. stand.json is the result of an
     Easy Teach session on the robot"
 ```
+
+#### Storage Manager
+The agent `Storage Manager` only allows file operations relative to a root directory. For me this is
+```
+/opt/booster/booster_agent_data/data/agent_storage/chuckcoughlin.charlie
+```.
+For  `BoosterStudio`, populate the *.json* files the determine the trajectories of these actions. Before running the script
+make sure that `DOCKER_ID` is defined. Use `docker ps` and choose the ID that is associated with the virtual robot.airlines
+
+```
+  bin/setup_docker.sh
+```

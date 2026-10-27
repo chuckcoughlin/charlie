@@ -15,20 +15,37 @@ Output: List of TrajectoryData objects suitable for robot.execute_trajectory()
 
 import json
 from typing import List
+from boosteros.robots.booster import BoosterRobot
 from boosteros.types import TrajectoryData, TrajectoryMeta, JointTrajectoryPoint, JointState
 
 # Joint names in the order they appear in Easy Teach recordings
 EASY_TEACH_JOINTS = [
-    "Head_Yaw",
+    "AAHead_Yaw",
     "Head_Pitch",
-    "Left_Shoulder_Pitch",
+    "ALeft_Shoulder_Pitch",
     "Left_Shoulder_Roll",
     "Left_Elbow_Pitch",
     "Left_Elbow_Yaw",
-    "Right_Shoulder_Pitch",
+    "ARight_Shoulder_Pitch",
     "Right_Shoulder_Roll",
     "Right_Elbow_Pitch",
-    "Right_Elbow_Yaw",
+    "Right_Elbow_Yaw"
+]
+
+# Joint names below the waist
+LOWER_JOINTS = [
+    "Left_Ankle_Pitch", 
+    'Left_Ankle_Roll', 
+    'Left_Hip_Pitch', 
+    'Left_Hip_Roll', 
+    'Left_Hip_Yaw', 
+    'Left_Knee_Pitch', 
+    'Right_Ankle_Pitch', 
+    'Right_Ankle_Roll', 
+    'Right_Hip_Pitch', 
+    'Right_Hip_Roll', 
+    'Right_Hip_Yaw', 
+    'Right_Knee_Pitch'
 ]
 
 # Conversion factor: Easy Teach stores joint positions in millidegrees (0.001 degrees)
@@ -41,7 +58,7 @@ def millidegrees_to_radians(value: int) -> float:
     return value * MILLIDEGREES_TO_RADIANS
 
 # JSON is the result of an EasyTeach session
-def jsonToTrajectory(model:str,json_string: str) -> TrajectoryData:
+def jsonToTrajectory(robot:BoosterRobot,json_string: str) -> TrajectoryData:
     """
     Convert an Easy Teach JSON string into a list of TrajectoryData objects.
 
@@ -78,26 +95,41 @@ def jsonToTrajectory(model:str,json_string: str) -> TrajectoryData:
         time_from_start = (frame["ts"] - start_ts) / 1000.0  # ms -> seconds
         positions = [millidegrees_to_radians(v) for v in frame["a"]]
         joints : list[JointState] = [] 
+        i = 0
         for i,position in enumerate(positions):
             js = JointState(
                 name = EASY_TEACH_JOINTS[i],
                 position = position
             )
             joints.append(js)
+        # Stub in below the waist
+        for name in LOWER_JOINTS:
+            i = i+1
+            js = JointState(
+                name = name,
+                position = i
+            )
+            joints.append(js)
         point = JointTrajectoryPoint(
         time_from_start=time_from_start,
-            joints = joints
+            joints = joints,
         )
         trajectory_points.append(point)
 
     # Calculate total duration
     total_duration = (frames[-1]["ts"] - start_ts) / 1000.0
 
-    # Create TrajectoryData object with meta and points
+    
+    # Create TrajectoryMreta 
     tmeta = TrajectoryMeta(
-        model = model,
-        duration=total_duration
+        manufacturer = robot.robot_info.manufacturer,
+        model = robot.robot_info.model,
+        boosteros_version = robot.robot_info.firmware_version,
+        id = robot.robot_info.serial_number,
+        sample_interval = 0.0,
+        duration = total_duration 
     )
+    # Create TrajectoryData object with meta and points
     trajectory_data = TrajectoryData(
         meta = tmeta,
         points=trajectory_points
