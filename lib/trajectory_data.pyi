@@ -1,4 +1,5 @@
 """Type stubs for Booster SDK trajectory data types."""
+from .time import Duration
 
 
 class JointState:
@@ -23,7 +24,7 @@ class JointState:
 class JointTrajectoryPoint:
     """A single point in a joint trajectory."""
 
-    time_from_start: float
+    time_from_start: Duration
 	joints: list[JointState]
 
     def __init__(

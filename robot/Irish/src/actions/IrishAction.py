@@ -32,13 +32,15 @@ class IrishAction(ABC):
     # Run the click action in a background thread.
     def on_component_click(self, component: Component) -> LocaleString | None:
         """Handle click event by starting or stopping the associated action."""
+        error_string = traceback.format_exc()
+        self.logger.info("TRACEBACK:"+error_string)
 
         # Read the icon state to decide whether to start or stop the action.
         state_icon = cast(DefaultStateIconComponent, component)
 
         self.logger.info(
             f"Component clicked: {component.id}, "
-            + f"action: {self.name}, running = {state_icon.state}"
+            + f"action: {self.name}, running state = {state_icon.state}"
         )
 
         if state_icon.state:

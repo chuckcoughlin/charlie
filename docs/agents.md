@@ -60,12 +60,12 @@ For each of the three actions the developer positions limbs into an appropriate
 series of timed poses that are recorded for later playback.
 
 Once recordings were complete, the resulting
-*.json* files was found in a subdirectory of
+*.json* file was found in a subdirectory of
 ```
 /opt/booster/booster_agent_data/data agent_storage
         /chuckcoughlin.charlie/orchestrations
 ```
-and copied back onto the development machine in the agent's `res` directory. The recording
+and copied back onto the development machine in the agent's `data` directory. The recording
 and custom action were then deleted from the live robot.
 
 After this, the `BoosterStudio` *AI Assistant* was asked to generate Python code to
@@ -77,6 +77,7 @@ Starting with a stub version of the `Stand.py` class with an empty *execute* met
     the robot motion. stand.json is the result of an
     Easy Teach session on the robot"
 ```
+The `joint_upper_control_example.py` sample provided hints for the remaining code. 
 
 #### Storage Manager
 The agent `Storage Manager` only allows file operations relative to a root directory. For me this is

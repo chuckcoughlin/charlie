@@ -68,7 +68,7 @@ effect.
    Ubuntu and the Booster core is pre-configured inside the Docker container. Python is also bundled there including the *boosteros* and
    *booster_sdk_python* packages. The Python version is 3.10.
 
-   execute
+   To determine the Docker ids, execute
    ```
     docker ps
    ```
@@ -84,6 +84,9 @@ effect.
    ```
     docker cp ${DOCKER_ID}:/usr/local/lib/python3.10/dist-packages/boosteros ./boosteros
    ```
+
+   Each time the system is restarted, type "start docker" into the `BoosterStudio` AI assistant window.
+   
 ## Speech Configuration <a id="speech"></a>
   We use the Google Text-to-Speech module for enunciation of text strings. Install on the robot
   and in the development environment by
@@ -103,7 +106,7 @@ effect.
   The default password is: 123456
 
   ```
-    ssh boost er@10.0.0.245
+    ssh booster@10.0.0.245
   ```
   To setup password-free access, on the development machine:
   ```
@@ -129,8 +132,9 @@ When an update is available for `Booster Studio` a blue notice will appear in th
 #### Booster K1
 The currently installed version is 1.8.0.9-release-02011-2026-09-14-global.
 
-Instructions for firmare updates are available [here](https://docs.booster.tech/docs/product-manual/k1/firmware-version/software-upgrade/). There are several ways to install an update. Perhaps the easiest is through `Firmware Upgrade` link on the `Settings` page in the Android app. Place the robot in `DAMP` mode. Make sure both the tablet and robot are fully charged before proceeding.
-Currently the update barely succeeds on a single battery charge.
+Instructions for firmware updates are available [here](https://docs.booster.tech/docs/product-manual/k1/firmware-version/software-upgrade/). There are several ways to install an update.
+
+Perhaps the easiest is through `Firmware Upgrade` link on the `Settings` page in the Android app. Place the robot in `DAMP` mode. Make sure both the tablet and robot are fully charged before proceeding. Currently the update barely succeeds on a single battery charge. *(Downloading the update image separately might be a safer option.)*
 
 #### After Update
 
@@ -139,10 +143,10 @@ Currently the update barely succeeds on a single battery charge.
   # Check the new firmware version
   cat /opt/booster/version.txt`
 
-  # In firmware version v1.7, the `boosteros` package is not included.
+  # In firmware version v1.7, the `boosteros` package was not included.
   # Make sure it is there now.
   python3 -m pip list
-  # Observer boosteros 1.1.1 and booster_robotics_sdk_python 1.5.6
+  # Observe versions boosteros 1.1.1 and booster_robotics_sdk_python 1.5.6
   # Retrieve sample code
   boosteros-examples
   exit
@@ -158,8 +162,8 @@ Currently the update barely succeeds on a single battery charge.
   code to the robot.
 
   Start the robot, setting it in `DAMP` mode. Within `Booster Studio` create a target device that is a
-  standin for the physical robot. These can be created from the "choose robot"
-  option on the right ide of the main menu. Connect it and login using user `booster/123456`.
+  stand-in for the physical robot. These can be created from the "choose robot"
+  option on the right side of the main menu. Connect it and login using user `booster/123456`.
 
   Then, next to the "Build" button on the main menu bar use the button for "Activate,build, deploy, and run".
   to build and deploy new code onto the physical robot.
