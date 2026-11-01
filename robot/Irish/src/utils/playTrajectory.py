@@ -52,7 +52,8 @@ def playTrajectory(robot:BoosterRobot,trajectory:TrajectoryData,logger):
     try:
         # point is a JointTrajectoryPoint
         # ts is time-from-start in milliseconds
-        
+        upper_body_enabled = True
+        robot.upper_body_control(upper_body_enabled)
         priorTime = nanoTime.Duration(0)
         for point in trajectory.points:
             # startTime = point.time_from_Start
@@ -64,15 +65,14 @@ def playTrajectory(robot:BoosterRobot,trajectory:TrajectoryData,logger):
                         name=name, position=joint.position, kp=kp_upper[i], kd=kd_upper[i]
                     )
 
-            upper_body_enabled = True
-            robot.upper_body_control(upper_body_enabled)
+            commands = list(commandList.values())
+            count = commands.count
             jointTime = point.time_from_start
             delay = jointTime.seconds - priorTime.seconds
-            logger.info(f"Trajectory delay = {delay:.1f} secs")
+            logger.info(f"Trajectory delay = {delay:.1f} secs, {count} commands")
             time.sleep(delay) # ms
             priorTime = jointTime
-
-            robot.set_joints(list(commandList.values()))
+            robot.set_joints(commands)
 
     except KeyboardInterrupt:
         logger.info("\nAction playback interrupted by keystroke")
