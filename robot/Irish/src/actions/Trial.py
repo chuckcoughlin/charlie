@@ -8,7 +8,7 @@ from booster_agent_framework import (
     LocaleString
 )
 from boosteros.robots.booster import BoosterRobot
-from boosteros.types import JointCommand,TrajectoryData,JointTrajectoryPoint
+from boosteros.types import JointCommand,JointState,TrajectoryData,JointTrajectoryPoint
 
 NAME    = "trial"
 COMPONENT_NAME = "trial_action"
@@ -39,9 +39,36 @@ class Trial(IrishAction):
         self.logger.info(f"{self.name} action completed")
 
     def read_elbow_position(self):
-        pass
+        states: list[JointState] = self.robot.get_joint_states()
+        for state in states:
+            self.logger.info(f"{state.name} at {state.position:.2f} ({state.effort:.2f}, {state.velocity:.2f}")
 
+    # All upper body joints must be set.
+    # Move right elbow
+    # Note this fails first time because "running state = false", succeeds second 
     def write_elbow_position(self):
         self.robot.upper_body_control(True)
-        commandList: dict[str, JointCommand] = {}
-        self.robot.upper_body_control(False)
+        commands:list[JointCommand] = []
+        cmd = JointCommand( name="AAHead_Yaw", position= 0.0, effort=0.0, velocity=0.0)
+        commands.append(cmd)
+        cmd = JointCommand( name="Head_Pitch", position= 0.01, effort=0.10, velocity=0.0)
+        commands.append(cmd)
+        cmd = JointCommand( name="ALeft_Shoulder_Pitch", position= 0.04, effort=0.07, velocity=0.0)
+        commands.append(cmd)
+        cmd = JointCommand( name="Left_Shoulder_Roll", position=-1.18, effort=0.55, velocity=0.0)
+        commands.append(cmd)
+        cmd = JointCommand( name="Left_Elbow_Pitch", position= -.04, effort=0.01, velocity=0.0)
+        commands.append(cmd)
+        cmd = JointCommand( name="Left_Elbow_Yaw", position= -0.19, effort=-0.02, velocity=0.0)
+        commands.append(cmd)
+        cmd = JointCommand( name="ARight_Shoulder_Pitch", position= -0.04, effort=-0.04, velocity=0.0)
+        commands.append(cmd)
+        cmd = JointCommand( name="Right_Shoulder_Roll", position= 1.32, effort=-0.34, velocity=0.0)
+        commands.append(cmd)
+        cmd = JointCommand( name="Right_Elbow_Pitch", position=-0.47, effort=0.04, velocity=0.0)  # -0.07
+        commands.append(cmd)
+        cmd = JointCommand( name="Right_Elbow_Yaw", position= 0.60, effort=1.0, velocity=0.0)     # 0.15
+        commands.append(cmd)
+        
+        self.robot.set_joints(commands)
+        # self.robot.upper_body_control(False)

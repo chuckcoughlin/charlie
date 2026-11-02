@@ -64,7 +64,8 @@ def jsonToTrajectory(robot:BoosterRobot,json_string: str,logger) -> TrajectoryDa
     duration = nanoTime.Duration(0)
     for frame in frames:
         ts = int(frame["ts"]) # ms -> seconds
-        positions = [millidegrees_to_radians(v) for v in frame["a"]]
+        # positions = [millidegrees_to_radians(v) for v in frame["a"]]
+        positions = [v*(0.0001) for v in frame["a"]]
         joints : list[JointState] = [] 
         for i,position in enumerate(positions):
             js = JointState(
