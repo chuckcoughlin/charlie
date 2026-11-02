@@ -1,6 +1,6 @@
 # Copyright 2026. Charles Coughlin. All Rights Reserved.
 #     MIT License.
-"""Irish Agent - includes 4 custom actions."""
+"""Irish Agent - includes 6 custom actions."""
 
 from booster_agent_framework import (
     AgentBase,
@@ -14,6 +14,7 @@ from .actions.ChainActions import ChainActions
 from .actions.Countin import Countin
 from .actions.DanceJig import DanceJig
 from .actions.Stand import Stand
+from .actions.Trial import Trial
 from .actions.Wave import Wave
 
 IRISH_PAGE_ID: str = "IrishAgentMode"
@@ -29,6 +30,7 @@ class IrishAgent(AgentBase):
         self.count_action = Countin(self,robot)
         self.jig_action   = DanceJig(self,robot)
         self.stand_action = Stand(self,robot)
+        self.trial_action   = Trial(self,robot)
         self.wave_action  = Wave(self,robot)
         self.page_id = IRISH_PAGE_ID
         self.setup_components(robot)
@@ -53,6 +55,7 @@ class IrishAgent(AgentBase):
         self.page_proxy.register_component(self.page_id, self.bow_action.component)
         self.page_proxy.register_component(self.page_id, self.chain_action.component)
         self.page_proxy.register_component(self.page_id, self.count_action.component)
+        self.page_proxy.register_component(self.page_id, self.trial_action.component)
         self.page_proxy.register_component(self.page_id, self.jig_action.component)
         self.page_proxy.register_component(self.page_id, self.stand_action.component)
         self.page_proxy.register_component(self.page_id, self.wave_action.component)
