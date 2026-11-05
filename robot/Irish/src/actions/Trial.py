@@ -33,15 +33,19 @@ class Trial(IrishAction):
     def execute(self):
         self.logger.info(f"Executing action {self.name}")
         # Read right elbow position, change it, then read it again
+        self.logger.info(f"{self.name} read positions")
         self.read_elbow_position()
+        self.logger.info(f"{self.name} write elbow positions")
         self.write_elbow_position()
+        self.logger.info(f"{self.name} read positions")
         self.read_elbow_position()
         self.logger.info(f"{self.name} action completed")
 
     def read_elbow_position(self):
         states: list[JointState] = self.robot.get_joint_states()
         for state in states:
-            self.logger.info(f"{state.name} at {state.position:.2f} ({state.effort:.2f}, {state.velocity:.2f}")
+            if "Elbow" in state.name:
+                self.logger.info(f"{state.name} at {state.position:.2f} ({state.effort:.2f}, {state.velocity:.2f}")
 
     # All upper body joints must be set.
     # Move right elbow
