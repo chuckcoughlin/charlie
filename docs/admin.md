@@ -40,6 +40,9 @@ The development system needs the booster packages:
 ```
 NOTE: On MacOSX the latest `boosteros` is 0.0.0.
 
+The system must be restarted after running this script.
+
+
 ### Booster Studio <a id="studio"></a>
 Booster Studio is the preferred development environment for robot custom agents.
 It is available from [Booster Studio](https://studio.booster.tech/#contact).
@@ -58,7 +61,7 @@ See
  ```
     install_stubs.sh
 ```
-It may be necessary to restart the machine for this to take
+It may be necessary to restart the development machine for this to take
 effect.
 
  ### Docker <a id="docker_desktop"></a>
@@ -70,26 +73,33 @@ effect.
 
    To determine the Docker ids, execute
    ```
-    docker ps
+     docker ps
    ```
    Place the resulting id in *~/.bashrc*. Export as `DOCKER_ID`. This will be referenced in various utility
-   scripts that access the virtual robot.
+   scripts that access the virtual robot. If two instances are listed, select the one that applies to the
+   virtual robot. The other is used for building agents.
 
    To execute utilities within the Docker container, for example:
    ```
-     docker exec -it ${DOCKER_ID} /bin/bash
+      docker exec -it ${DOCKER_ID} /bin/bash
    ```
+
+   The `Docker` Ubuntu distribution is a minimal distribution that does not contain a text editor. To add 'vi':
+   ```
+      apt-get update && apt-get install -y vim
+   ```
+
    To copy files from within the `docker` container into the MacOSX filesystem, use *docker cp*. For example
    to copy the Python SDK in its entirety to the development machine, make a *boosteros* directoy, then:
    ```
-    docker cp ${DOCKER_ID}:/usr/local/lib/python3.10/dist-packages/boosteros ./boosteros
+     docker cp ${DOCKER_ID}:/usr/local/lib/python3.10/dist-packages/boosteros ./boosteros
    ```
 
    Each time the system is restarted, type "start docker" into the `BoosterStudio` AI assistant window.
-   
+
 ## Speech Configuration <a id="speech"></a>
-  We use the Google Text-to-Speech module for enunciation of text strings. Install on the robot
-  and in the development environment by
+  We use the Google Text-to-Speech module for enunciation of text strings. Install on the robot, within the
+  `Docker` and on the development machine by
   ```
      pip3 install gTTS
   ```
@@ -162,8 +172,13 @@ Perhaps the easiest is through `Firmware Upgrade` link on the `Settings` page in
   code to the robot.
 
   Start the robot, setting it in `DAMP` mode. Within `Booster Studio` create a target device that is a
-  stand-in for the physical robot. These can be created from the "choose robot"
+  stand-in for the physical yyyrobot. These can be created from the "choose robot"
   option on the right side of the main menu. Connect it and login using user `booster/123456`.
 
   Then, next to the "Build" button on the main menu bar use the button for "Activate,build, deploy, and run".
   to build and deploy new code onto the physical robot.
+
+  To copy trajectory data files onto the physical robot:
+  ```
+    deploy.sh
+  ```

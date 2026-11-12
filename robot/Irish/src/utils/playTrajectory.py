@@ -13,17 +13,16 @@ Easy Teach JSON format:
 Output: List of TrajectoryData objects suitable for robot.execute_trajectory()
 """
 
-import json
-import logging
 import time
-from typing import List
 from boosteros.robots.booster import BoosterRobot
-from boosteros.types import JointCommand,TrajectoryData,JointTrajectoryPoint
+from boosteros.types import JointCommand,TrajectoryData
 from boosteros.types import time as nanoTime
 
-# Conversion factor: Easy Teach stores joint positions in millidegrees (0.001 degrees)
+# Conversion factor: Easy Teach stores joint positions in degrees x 10
 # Booster SDK expects positions in radians
-MILLIDEGREES_TO_RADIANS = 0.001 * 3.141592653589793 / 180.0
+def to_radian( degree: float):
+    rad = degree *0.1 * 3.141592653589793 / 180.0
+    return rad
 
 # JSON is the result of an EasyTeach session
 def playTrajectory(robot:BoosterRobot,trajectory:TrajectoryData,logger):
@@ -54,6 +53,7 @@ def playTrajectory(robot:BoosterRobot,trajectory:TrajectoryData,logger):
         # ts is time-from-start in milliseconds
         upper_body_enabled = True
         robot.upper_body_control(upper_body_enabled)
+        time.sleep(5)
         priorTime = nanoTime.Duration(0)
         for point in trajectory.points:
             # startTime = point.time_from_Start
@@ -61,9 +61,9 @@ def playTrajectory(robot:BoosterRobot,trajectory:TrajectoryData,logger):
             for i, name in enumerate(point.joint_names):
                 joint = point.get_joint(name)
                 if joint is not None and joint.position is not None:
+                    pos = to_radian(joint.position)
                     commandList[name] = JointCommand(
-                        name=name, position=joint.position, kp=kp_upper[i], kd=kd_upper[i]
-                    )
+                        name=name, position=pos)
 
             commands = list(commandList.values())
             count = len(commands)

@@ -13,6 +13,6 @@ for fil in *; do
 	fi
 done
 
-# Make directory fortemporary audio files
+# Make directory for temporary audio files
 docker exec -u root -it ${DOCKER_ID} mkdir -p -m 777 ${STORAGE_MANAGER}/cache/audio
 

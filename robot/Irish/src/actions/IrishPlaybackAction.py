@@ -3,6 +3,7 @@
 
 """Reconstruct upper body motions recorded by Easy Teach"""
 from .IrishAction import IrishAction
+from ..utils.initializeJoints import initializeJoints
 from ..utils.jsonToTrajectory import jsonToTrajectory
 from ..utils.playTrajectory import playTrajectory
 from abc import abstractmethod
@@ -46,6 +47,7 @@ class IrishPlaybackAction(IrishAction):
             return
 
         try:
+            initializeJoints(self.robot,self.logger)
             playTrajectory(self.robot,self.trajectory,self.logger)
             self.logger.info(f"{self.name} trajectory completed")
         except Exception as e:
